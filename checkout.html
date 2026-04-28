@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>cora - checkout</title>
+    <title data-i18n="checkout.pageTitle">cora - checkout</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="styles.css"/>
 </head>
@@ -13,12 +13,12 @@
 <div class="cursor-ring" id="cursorRing"></div>
 
 <nav>
-    <a href="index.html" class="nav-logo">cora</a>
+    <a href="index.html" class="nav-logo" data-i18n="nav.logo">cora</a>
     <ul class="nav-links">
-        <li><a href="index.html">fonctions</a></li>
-        <li><a href="story.html">notre histoire</a></li>
-        <li><a href="design.html">design</a></li>
-        <li><a href="checkout.html" class="active">commander</a></li>
+        <li><a href="index.html" data-i18n="nav.functions">fonctions</a></li>
+        <li><a href="story.html" data-i18n="nav.story">notre histoire</a></li>
+        <li><a href="design.html" data-i18n="nav.design">design</a></li>
+        <li><a href="checkout.html" class="active" data-i18n="nav.order">commander</a></li>
     <button class="nav-lang-btn" id="navLangBtn" aria-label="Changer de langue" onclick="openLangOverlay()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
         <span id="navLangLabel">FR</span>
@@ -30,9 +30,9 @@
     <section class="checkout-shell">
         <form id="checkout-form" class="checkout-panel" data-checkout-form data-base-price="249.99">
             <div class="checkout-header reveal">
-                <p class="section-kicker">configurateur signature</p>
-                <h1>compose une edition cora a ton image.</h1>
-                <p>produit, teinte, pack, livraison.</p>
+                <p class="section-kicker" data-i18n="checkout.headerKicker">configurateur signature</p>
+                <h1 data-i18n="checkout.headerTitle">compose une edition cora a ton image.</h1>
+                <p data-i18n="checkout.headerText">produit, teinte, pack, livraison.</p>
             </div>
 
             <section class="product-stage reveal reveal-delay-1">
@@ -49,12 +49,12 @@
                     </div>
                 </div>
                 <div class="product-stage-copy">
-                    <p class="step-count">apercu</p>
-                    <h2 data-stage-product>ecouteurs cora</h2>
-                    <p data-stage-copy>compact, discret, quotidien.</p>
+                    <p class="step-count" data-i18n="checkout.stagePreview">apercu</p>
+                    <h2 data-stage-product data-i18n="checkout.stageEarbudsTitle">ecouteurs cora</h2>
+                    <p data-stage-copy data-i18n="checkout.stageEarbudsCopy">compact, discret, quotidien.</p>
                     <div class="stage-pills">
-                        <span class="stage-pill" data-stage-price>249,99 ca$</span>
-                        <span class="stage-pill" data-stage-color-name>ivoire fumee</span>
+                        <span class="stage-pill" data-stage-price data-i18n="checkout.priceAmount">249,99 ca$</span>
+                        <span class="stage-pill" data-stage-color-name data-i18n="checkout.colorIvory">ivoire fumee</span>
                     </div>
                     <div class="stage-swatches">
                         <span class="stage-swatch is-active" data-stage-swatch="ivory"></span>
@@ -66,18 +66,18 @@
 
             <div class="checkout-grid">
                 <section class="step-card reveal reveal-delay-1">
-                    <p class="step-count">01 / produit</p>
-                    <h2 class="step-title">choisis le format.</h2>
-                    <p class="step-copy">deux formats.</p>
+                    <p class="step-count" data-i18n="checkout.step1Count">01 / produit</p>
+                    <h2 class="step-title" data-i18n="checkout.step1Title">choisis le format.</h2>
+                    <p class="step-copy" data-i18n="checkout.step1Copy">deux formats.</p>
                     <div class="choice-grid single">
                         <div>
                             <input class="option-input" type="radio" name="product" id="product-earbuds" checked data-label="ecouteurs cora" data-price="249.99" data-visual="earbuds" data-stage-copy="compact, discret, quotidien."/>
                             <label class="choice-card media" for="product-earbuds">
                                 <span class="mini-visual mini-earbuds"></span>
                                 <span class="choice-copy">
-                                    <span class="choice-eyebrow">compact</span>
-                                    <strong>ecouteurs cora</strong>
-                                    <p>leger, mobile.</p>
+                                    <span class="choice-eyebrow" data-i18n="checkout.productEarbudsEyebrow">compact</span>
+                                    <strong data-i18n="checkout.productEarbudsLabel">ecouteurs cora</strong>
+                                    <p data-i18n="checkout.productEarbudsDesc">leger, mobile.</p>
                                     <span class="choice-price">249,99 ca$</span>
                                 </span>
                             </label>
@@ -87,9 +87,9 @@
                             <label class="choice-card media" for="product-headset">
                                 <span class="mini-visual mini-headset"></span>
                                 <span class="choice-copy">
-                                    <span class="choice-eyebrow">studio</span>
-                                    <strong>casque cora</strong>
-                                    <p>ample, immersif.</p>
+                                    <span class="choice-eyebrow" data-i18n="checkout.productHeadsetEyebrow">studio</span>
+                                    <strong data-i18n="checkout.productHeadsetLabel">casque cora</strong>
+                                    <p data-i18n="checkout.productHeadsetDesc">ample, immersif.</p>
                                     <span class="choice-price">489,99 ca$</span>
                                 </span>
                             </label>
@@ -98,25 +98,25 @@
                 </section>
 
                 <section class="step-card reveal reveal-delay-1">
-                    <p class="step-count">02 / couleur</p>
-                    <h2 class="step-title">choisis la teinte.</h2>
-                    <p class="step-copy">trois options.</p>
+                    <p class="step-count" data-i18n="checkout.step2Count">02 / couleur</p>
+                    <h2 class="step-title" data-i18n="checkout.step2Title">choisis la teinte.</h2>
+                    <p class="step-copy" data-i18n="checkout.step2Copy">trois options.</p>
                     <div class="choice-grid">
                         <div>
                             <input class="option-input" type="radio" name="color" id="color-ivory" checked data-label="ivoire fumee" data-price="0" data-color="ivory"/>
                             <label class="choice-card" for="color-ivory">
                                 <span class="color-dot color-ivory"></span>
-                                <strong>ivoire fumee</strong>
-                                <p>douce.</p>
-                                <span class="choice-price">inclus</span>
+                                <strong data-i18n="checkout.colorIvoryLabel">ivoire fumee</strong>
+                                <p data-i18n="checkout.colorIvoryDesc">douce.</p>
+                                <span class="choice-price" data-i18n="checkout.included">inclus</span>
                             </label>
                         </div>
                         <div>
                             <input class="option-input" type="radio" name="color" id="color-prune" data-label="prune minerale" data-price="18" data-color="prune"/>
                             <label class="choice-card" for="color-prune">
                                 <span class="color-dot color-prune"></span>
-                                <strong>prune minerale</strong>
-                                <p>profonde.</p>
+                                <strong data-i18n="checkout.colorPruneLabel">prune minerale</strong>
+                                <p data-i18n="checkout.colorPruneDesc">profonde.</p>
                                 <span class="choice-price">+ 18,00 ca$</span>
                             </label>
                         </div>
@@ -124,8 +124,8 @@
                             <input class="option-input" type="radio" name="color" id="color-amber" data-label="ambre satine" data-price="18" data-color="amber"/>
                             <label class="choice-card" for="color-amber">
                                 <span class="color-dot color-amber"></span>
-                                <strong>ambre satine</strong>
-                                <p>chaude.</p>
+                                <strong data-i18n="checkout.colorAmberLabel">ambre satine</strong>
+                                <p data-i18n="checkout.colorAmberDesc">chaude.</p>
                                 <span class="choice-price">+ 18,00 ca$</span>
                             </label>
                         </div>
@@ -133,60 +133,60 @@
                 </section>
 
                 <section class="step-card reveal reveal-delay-1">
-                    <p class="step-count">03 / profil</p>
-                    <h2 class="step-title">choisis le profil.</h2>
-                    <p class="step-copy">deux sensations.</p>
+                    <p class="step-count" data-i18n="checkout.step3Count">03 / profil</p>
+                    <h2 class="step-title" data-i18n="checkout.step3Title">choisis le profil.</h2>
+                    <p class="step-copy" data-i18n="checkout.step3Copy">deux sensations.</p>
                     <div class="choice-grid">
                         <div>
                             <input class="option-input" type="radio" name="profile" id="profile-discreet" checked data-label="discret" data-price="0"/>
                             <label class="choice-card" for="profile-discreet">
-                                <span class="choice-eyebrow">quotidien</span>
-                                <strong>discret</strong>
-                                <p>souple.</p>
-                                <span class="choice-price">inclus</span>
+                                <span class="choice-eyebrow" data-i18n="checkout.profileDiscreetEyebrow">quotidien</span>
+                                <strong data-i18n="checkout.profileDiscreetLabel">discret</strong>
+                                <p data-i18n="checkout.profileDiscreetDesc">souple.</p>
+                                <span class="choice-price" data-i18n="checkout.included">inclus</span>
                             </label>
                         </div>
                         <div>
                             <input class="option-input" type="radio" name="profile" id="profile-studio" data-label="studio" data-price="0"/>
                             <label class="choice-card" for="profile-studio">
-                                <span class="choice-eyebrow">precis</span>
-                                <strong>studio</strong>
-                                <p>ferme.</p>
-                                <span class="choice-price">inclus</span>
+                                <span class="choice-eyebrow" data-i18n="checkout.profileStudioEyebrow">precis</span>
+                                <strong data-i18n="checkout.profileStudioLabel">studio</strong>
+                                <p data-i18n="checkout.profileStudioDesc">ferme.</p>
+                                <span class="choice-price" data-i18n="checkout.included">inclus</span>
                             </label>
                         </div>
                     </div>
                 </section>
 
                 <section class="step-card reveal reveal-delay-2">
-                    <p class="step-count">04 / accessoires</p>
-                    <h2 class="step-title">ajoute un pack.</h2>
-                    <p class="step-copy">trois niveaux.</p>
+                    <p class="step-count" data-i18n="checkout.step4Count">04 / accessoires</p>
+                    <h2 class="step-title" data-i18n="checkout.step4Title">ajoute un pack.</h2>
+                    <p class="step-copy" data-i18n="checkout.step4Copy">trois niveaux.</p>
                     <div class="choice-grid">
                         <div>
                             <input class="option-input" type="radio" name="pack" id="pack-core" checked data-label="pack essentiel" data-price="0"/>
                             <label class="choice-card" for="pack-core">
-                                <span class="choice-eyebrow">base</span>
-                                <strong>pack essentiel</strong>
-                                <p>essentiel.</p>
-                                <span class="choice-price">inclus</span>
+                                <span class="choice-eyebrow" data-i18n="checkout.packCoreEyebrow">base</span>
+                                <strong data-i18n="checkout.packCoreLabel">pack essentiel</strong>
+                                <p data-i18n="checkout.packCoreDesc">essentiel.</p>
+                                <span class="choice-price" data-i18n="checkout.included">inclus</span>
                             </label>
                         </div>
                         <div>
                             <input class="option-input" type="radio" name="pack" id="pack-textile" data-label="etui textile signature" data-price="39"/>
                             <label class="choice-card" for="pack-textile">
-                                <span class="choice-eyebrow">soft carry</span>
-                                <strong>etui textile signature</strong>
-                                <p>etui.</p>
+                                <span class="choice-eyebrow" data-i18n="checkout.packTextileEyebrow">soft carry</span>
+                                <strong data-i18n="checkout.packTextileLabel">etui textile signature</strong>
+                                <p data-i18n="checkout.packTextileDesc">etui.</p>
                                 <span class="choice-price">+ 39,00 ca$</span>
                             </label>
                         </div>
                         <div>
                             <input class="option-input" type="radio" name="pack" id="pack-dock" data-label="socle de charge atelier" data-price="69"/>
                             <label class="choice-card" for="pack-dock">
-                                <span class="choice-eyebrow">desk set</span>
-                                <strong>socle de charge atelier</strong>
-                                <p>dock.</p>
+                                <span class="choice-eyebrow" data-i18n="checkout.packDockEyebrow">desk set</span>
+                                <strong data-i18n="checkout.packDockLabel">socle de charge atelier</strong>
+                                <p data-i18n="checkout.packDockDesc">dock.</p>
                                 <span class="choice-price">+ 69,00 ca$</span>
                             </label>
                         </div>
@@ -194,46 +194,46 @@
                 </section>
 
                 <section class="step-card reveal reveal-delay-3">
-                    <p class="step-count">05 / gravure</p>
-                    <h2 class="step-title">ajoute une signature discrete.</h2>
-                    <p class="step-copy">optionnelle.</p>
+                    <p class="step-count" data-i18n="checkout.step5Count">05 / gravure</p>
+                    <h2 class="step-title" data-i18n="checkout.step5Title">ajoute une signature discrete.</h2>
+                    <p class="step-copy" data-i18n="checkout.step5Copy">optionnelle.</p>
                     <div class="field-grid">
                         <div class="field">
-                            <label for="engraving">gravure interieure</label>
-                            <input id="engraving" name="engraving" type="text" maxlength="18" placeholder="initiales, mot, date" data-engraving-input/>
-                            <small>+ 24,00 ca$.</small>
+                            <label for="engraving" data-i18n="checkout.engravingLabel">gravure interieure</label>
+                            <input id="engraving" name="engraving" type="text" maxlength="18" placeholder="initiales, mot, date" data-engraving-input data-i18n-placeholder="checkout.engravingPlaceholder"/>
+                            <small data-i18n="checkout.engravingPrice">+ 24,00 ca$.</small>
                         </div>
                         <div class="field">
-                            <label for="concierge-note">note atelier</label>
-                            <input id="concierge-note" name="concierge-note" type="text" maxlength="40" placeholder="ex. cadeau, date precise"/>
-                            <small>facultatif.</small>
+                            <label for="concierge-note" data-i18n="checkout.conciergeLabel">note atelier</label>
+                            <input id="concierge-note" name="concierge-note" type="text" maxlength="40" placeholder="ex. cadeau, date precise" data-i18n-placeholder="checkout.conciergePlaceholder"/>
+                            <small data-i18n="checkout.conciergeNote">facultatif.</small>
                         </div>
                     </div>
                 </section>
 
                 <section class="step-card reveal reveal-delay-3">
-                    <p class="step-count">06 / livraison</p>
-                    <h2 class="step-title">choisis la livraison.</h2>
-                    <p class="step-copy">trois vitesses.</p>
+                    <p class="step-count" data-i18n="checkout.step6Count">06 / livraison</p>
+                    <h2 class="step-title" data-i18n="checkout.step6Title">choisis la livraison.</h2>
+                    <p class="step-copy" data-i18n="checkout.step6Copy">trois vitesses.</p>
                     <div class="choice-grid single">
                         <div>
                             <input class="option-input" type="radio" name="delivery" id="delivery-standard" checked data-label="livraison premium standard" data-price="0"/>
                             <label class="choice-card inline" for="delivery-standard">
                                 <div>
-                                    <span class="choice-eyebrow">6 semaines</span>
-                                    <strong>standard</strong>
-                                    <p>normal.</p>
+                                    <span class="choice-eyebrow" data-i18n="checkout.deliveryStandardEyebrow">6 semaines</span>
+                                    <strong data-i18n="checkout.deliveryStandardLabel">standard</strong>
+                                    <p data-i18n="checkout.deliveryStandardDesc">normal.</p>
                                 </div>
-                                <span class="choice-price">inclus</span>
+                                <span class="choice-price" data-i18n="checkout.included">inclus</span>
                             </label>
                         </div>
                         <div>
                             <input class="option-input" type="radio" name="delivery" id="delivery-express" data-label="express 48 h apres production" data-price="24"/>
                             <label class="choice-card inline" for="delivery-express">
                                 <div>
-                                    <span class="choice-eyebrow">rapide</span>
-                                    <strong>express</strong>
-                                    <p>rapide.</p>
+                                    <span class="choice-eyebrow" data-i18n="checkout.deliveryExpressEyebrow">rapide</span>
+                                    <strong data-i18n="checkout.deliveryExpressLabel">express</strong>
+                                    <p data-i18n="checkout.deliveryExpressDesc">rapide.</p>
                                 </div>
                                 <span class="choice-price">+ 24,00 ca$</span>
                             </label>
@@ -242,9 +242,9 @@
                             <input class="option-input" type="radio" name="delivery" id="delivery-concierge" data-label="remise concierge sur rendez-vous" data-price="39"/>
                             <label class="choice-card inline" for="delivery-concierge">
                                 <div>
-                                    <span class="choice-eyebrow">signature</span>
-                                    <strong>concierge</strong>
-                                    <p>sur rendez-vous.</p>
+                                    <span class="choice-eyebrow" data-i18n="checkout.deliveryConciergeEyebrow">signature</span>
+                                    <strong data-i18n="checkout.deliveryConciergeLabel">concierge</strong>
+                                    <p data-i18n="checkout.deliveryConciergeDesc">sur rendez-vous.</p>
                                 </div>
                                 <span class="choice-price">+ 39,00 ca$</span>
                             </label>
@@ -255,8 +255,8 @@
         </form>
 
         <aside class="summary-panel reveal reveal-delay-2">
-            <p class="summary-kicker">resume de commande</p>
-            <h2 class="summary-title">configuration cora</h2>
+            <p class="summary-kicker" data-i18n="checkout.summaryKicker">resume de commande</p>
+            <h2 class="summary-title" data-i18n="checkout.summaryTitle">configuration cora</h2>
             <div class="summary-topline">
                 <div>
                     <div class="summary-price" data-summary-total>249,99 ca$</div>
@@ -269,74 +269,74 @@
             <div class="summary-list">
                 <div class="summary-row">
                     <div>
-                        <strong>produit</strong>
+                        <strong data-i18n="checkout.summaryProduct">produit</strong>
                         <span data-summary-product>ecouteurs cora</span>
                     </div>
                     <div class="summary-value" data-summary-price>249,99 ca$</div>
                 </div>
                 <div class="summary-row">
                     <div>
-                        <strong>couleur</strong>
+                        <strong data-i18n="checkout.summaryColor">couleur</strong>
                         <span data-summary-color>ivoire fumee</span>
                     </div>
-                    <div class="summary-value" data-summary-color-price>inclus</div>
+                    <div class="summary-value" data-summary-color-price data-i18n="checkout.included">inclus</div>
                 </div>
                 <div class="summary-row">
                     <div>
-                        <strong>profil</strong>
+                        <strong data-i18n="checkout.summaryProfile">profil</strong>
                         <span data-summary-profile>discret</span>
                     </div>
-                    <div class="summary-value">inclus</div>
+                    <div class="summary-value" data-i18n="checkout.included">inclus</div>
                 </div>
                 <div class="summary-row">
                     <div>
-                        <strong>pack</strong>
+                        <strong data-i18n="checkout.summaryPack">pack</strong>
                         <span data-summary-pack>pack essentiel</span>
                     </div>
-                    <div class="summary-value" data-summary-pack-price>inclus</div>
+                    <div class="summary-value" data-summary-pack-price data-i18n="checkout.included">inclus</div>
                 </div>
                 <div class="summary-row">
                     <div>
-                        <strong>gravure</strong>
-                        <span data-summary-engraving>sans gravure</span>
+                        <strong data-i18n="checkout.summaryEngraving">gravure</strong>
+                        <span data-summary-engraving data-i18n="checkout.noEngraving">sans gravure</span>
                     </div>
-                    <div class="summary-value" data-summary-engraving-price>inclus</div>
+                    <div class="summary-value" data-summary-engraving-price data-i18n="checkout.included">inclus</div>
                 </div>
                 <div class="summary-row">
                     <div>
-                        <strong>livraison</strong>
+                        <strong data-i18n="checkout.summaryDelivery">livraison</strong>
                         <span data-summary-delivery>livraison premium standard</span>
                     </div>
-                    <div class="summary-value" data-summary-delivery-price>inclus</div>
+                    <div class="summary-value" data-summary-delivery-price data-i18n="checkout.included">inclus</div>
                 </div>
             </div>
 
             <div class="summary-total">
                 <div>
-                    <strong>total estime</strong>
+                    <strong data-i18n="checkout.totalEstimate">total estime</strong>
                     <span data-summary-total>249,99 ca$</span>
                 </div>
             </div>
 
             <div class="summary-actions">
-                <button type="button" class="btn btn-primary"><span>continuer vers le paiement</span></button>
-                <p class="summary-note">adresse et paiement ensuite.</p>
+                <button type="button" class="btn btn-primary"><span data-i18n="checkout.continuePayment">continuer vers le paiement</span></button>
+                <p class="summary-note" data-i18n="checkout.summaryNote">adresse et paiement ensuite.</p>
             </div>
         </aside>
     </section>
 
     <section class="checkout-note">
         <article class="checkout-note-card reveal reveal-delay-1">
-            <strong>30 jours</strong>
-            <p>essai.</p>
+            <strong data-i18n="checkout.note1Strong">30 jours</strong>
+            <p data-i18n="checkout.note1Text">essai.</p>
         </article>
         <article class="checkout-note-card reveal reveal-delay-2">
-            <strong>support concierge</strong>
-            <p>support.</p>
+            <strong data-i18n="checkout.note2Strong">support concierge</strong>
+            <p data-i18n="checkout.note2Text">support.</p>
         </article>
         <article class="checkout-note-card reveal reveal-delay-3">
-            <strong>serie limitee</strong>
-            <p>quantites limitees.</p>
+            <strong data-i18n="checkout.note3Strong">serie limitee</strong>
+            <p data-i18n="checkout.note3Text">quantites limitees.</p>
         </article>
     </section>
 </main>
@@ -344,34 +344,34 @@
 <footer>
     <div class="footer-top">
         <div>
-            <div class="footer-logo">cora</div>
-            <p class="footer-brand-desc">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
+            <div class="footer-logo" data-i18n="nav.logo">cora</div>
+            <p class="footer-brand-desc" data-i18n="footer.tagline">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
         </div>
         <div class="footer-col">
-            <h4>navigation</h4>
+            <h4 data-i18n="footer.nav">navigation</h4>
             <ul>
-                <li><a href="index.html">fonctions</a></li>
-                <li><a href="story.html">notre histoire</a></li>
-                <li><a href="design.html">design</a></li>
-                <li><a href="checkout.html">commander</a></li>
+                <li><a href="index.html" data-i18n="nav.functions">fonctions</a></li>
+                <li><a href="story.html" data-i18n="nav.story">notre histoire</a></li>
+                <li><a href="design.html" data-i18n="nav.design">design</a></li>
+                <li><a href="checkout.html" data-i18n="nav.order">commander</a></li>
             </ul>
         </div>
         <div class="footer-col">
-            <h4>légal</h4>
+            <h4 data-i18n="footer.legal">légal</h4>
             <ul>
-                <li><a href="legal.html#privacy">politique de confidentialité</a></li>
-                <li><a href="legal.html#cgv">conditions générales de vente</a></li>
-                <li><a href="legal.html#mentions">mentions légales</a></li>
-                <li><a href="legal.html#cookies">cookies</a></li>
+                <li><a href="legal.html#privacy" data-i18n="footer.privacy">politique de confidentialité</a></li>
+                <li><a href="legal.html#cgv" data-i18n="footer.cgv">conditions générales de vente</a></li>
+                <li><a href="legal.html#mentions" data-i18n="footer.mentions">mentions légales</a></li>
+                <li><a href="legal.html#cookies" data-i18n="footer.cookies">cookies</a></li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
-        <p class="footer-copy">© 2025 cora, fait par ash</p>
+        <p class="footer-copy" data-i18n="footer.copy">© 2025 cora, fait par ash</p>
         <div class="footer-legal">
-            <a href="legal.html#privacy">confidentialité</a>
-            <a href="legal.html#cgv">CGV</a>
-            <a href="legal.html#mentions">mentions légales</a>
+            <a href="legal.html#privacy" data-i18n="footer.privacyShort">confidentialité</a>
+            <a href="legal.html#cgv" data-i18n="footer.cgvShort">CGV</a>
+            <a href="legal.html#mentions" data-i18n="footer.mentionsShort">mentions légales</a>
         </div>
     </div>
 </footer>
@@ -455,7 +455,6 @@ function closeLangOverlay() {
     document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLangOverlay(); });
-// Update nav label + active card after lang set
 document.addEventListener('DOMContentLoaded', () => {
     const labels = {fr:'FR',en:'EN',es:'ES',de:'DE',it:'IT',ru:'RU',pl:'PL',ko:'KO',ja:'JA',zh:'ZH'};
     const updateNav = () => {
