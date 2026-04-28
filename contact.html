@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="fr" data-i18n-title="contact.pageTitle">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>cora — contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <style>
+        /* ── LANG SWITCHER ─────────────────────────────────────── */
+        .lang-switcher {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .lang-toggle {
+            background: var(--cream);
+            border: 1px solid rgba(123,94,167,0.2);
+            border-radius: 40px;
+            padding: 0.55rem 1.1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            color: var(--purple);
+            cursor: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 20px rgba(123,94,167,0.12);
+            transition: all 0.2s;
+        }
+
+        .lang-toggle:hover {
+            background: var(--purple);
+            color: var(--cream);
+            border-color: var(--purple);
+        }
+
+        .lang-toggle svg {
+            width: 14px; height: 14px;
+        }
+
+        .lang-panel {
+            background: var(--cream);
+            border: 1px solid rgba(123,94,167,0.15);
+            border-radius: 20px;
+            padding: 0.8rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.2rem;
+            box-shadow: 0 8px 40px rgba(28,21,32,0.12);
+            min-width: 160px;
+        }
+
+        .lang-panel.open { display: flex; }
+
+        .lang-panel-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            color: var(--muted);
+            padding: 0.3rem 0.6rem 0.6rem;
+            border-bottom: 1px solid rgba(123,94,167,0.08);
+            margin-bottom: 0.3rem;
+        }
+
+        [data-lang-btn] {
+            background: none;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: var(--muted);
+            cursor: none;
+            text-align: left;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        [data-lang-btn]:hover {
+            background: rgba(123,94,167,0.06);
+            color: var(--text);
+        }
+
+        [data-lang-btn].is-active {
+            color: var(--purple);
+            font-weight: 500;
+            background: rgba(123,94,167,0.08);
+        }
+
+        [data-lang-btn].is-active::after {
+            content: '✓';
+            margin-left: auto;
+            font-size: 0.65rem;
+        }
+
+        .lang-flag { font-size: 1rem; line-height: 1; }
+
+        /* ── CONTACT HERO ──────────────────────────────────────── */
+        .contact-hero {
+            min-height: 52vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 4rem 5rem;
+            position: relative;
+            overflow: hidden;
+            background: var(--text);
+        }
+
+        .contact-hero-bg {
+            position: absolute; inset: -10%;
+            background:
+                radial-gradient(ellipse 60% 55% at 5% 15%, rgba(123,94,167,0.6) 0%, transparent 55%),
+                radial-gradient(ellipse 50% 45% at 95% 85%, rgba(196,135,58,0.4) 0%, transparent 50%),
+                radial-gradient(ellipse 45% 55% at 60% 5%, rgba(158,127,168,0.35) 0%, transparent 55%);
+            filter: blur(60px);
+            animation: meshFloat 20s ease-in-out infinite alternate;
+        }
+
+        .contact-hero-overlay {
+            position: absolute; inset: 0;
+            background: rgba(28,21,32,0.5);
+        }
+
+        .contact-hero > *:not(.contact-hero-bg):not(.contact-hero-overlay) {
+            position: relative; z-index: 2;
+        }
+
+        .contact-hero-kicker {
+            font-size: 0.7rem;
+            letter-spacing: 0.32em;
+            color: var(--purple-light);
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.2s;
+        }
+
+        .contact-hero-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            font-weight: 400;
+            line-height: 1.0;
+            letter-spacing: -0.04em;
+            color: var(--cream);
+            max-width: 700px;
+            opacity: 0;
+            animation: fadeUp 0.9s ease forwards 0.35s;
+        }
+
+        .contact-hero-title em {
+            font-style: italic;
+            background: linear-gradient(90deg, var(--purple-light), var(--amber-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero-sub {
+            margin-top: 1.8rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: rgba(253,248,242,0.58);
+            max-width: 460px;
+            opacity: 0;
+            animation: fadeUp 0.9s ease forwards 0.55s;
+        }
+
+        /* ── CONTACT BODY ──────────────────────────────────────── */
+        .contact-body {
+            background: var(--cream);
+            padding: 5rem 4rem;
+        }
+
+        .contact-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.55fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        /* Info column */
+        .contact-info-col {
+            position: sticky;
+            top: 100px;
+        }
+
+        .contact-info-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .contact-info-item {
+            padding: 1.4rem 0;
+            border-top: 1px solid rgba(123,94,167,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .contact-info-item:last-child {
+            border-bottom: 1px solid rgba(123,94,167,0.1);
+        }
+
+        .contact-info-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.22em;
+            color: var(--purple-light);
+        }
+
+        .contact-info-value {
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .contact-info-value a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info-value a:hover { color: var(--purple); }
+
+        .contact-email-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .contact-email-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .contact-email-row a {
+            font-size: 0.82rem;
+            color: var(--purple);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 400;
+        }
+
+        .contact-email-row a:hover { color: var(--amber); }
+
+        .contact-email-purpose {
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        /* Form column */
+        .contact-form-col {}
+
+        .contact-form-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .field-group label {
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+        }
+
+        .field-group input,
+        .field-group select,
+        .field-group textarea {
+            background: var(--bg);
+            border: 1px solid rgba(123,94,167,0.15);
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.25s, box-shadow 0.25s;
+            width: 100%;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .field-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A7F8E' stroke-width='1.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px;
+            padding-right: 2.5rem;
+            cursor: none;
+        }
+
+        .field-group textarea {
+            resize: vertical;
+            min-height: 140px;
+            line-height: 1.7;
+        }
+
+        .field-group input:focus,
+        .field-group select:focus,
+        .field-group textarea:focus {
+            border-color: var(--purple-light);
+            box-shadow: 0 0 0 3px rgba(123,94,167,0.08);
+        }
+
+        .field-group input::placeholder,
+        .field-group textarea::placeholder {
+            color: rgba(138,127,142,0.5);
+        }
+
+        .contact-submit {
+            margin-top: 0.5rem;
+        }
+
+        .contact-submit .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Success state */
+        .contact-success {
+            display: none;
+            text-align: center;
+            padding: 3.5rem 2rem;
+            background: linear-gradient(145deg, rgba(123,94,167,0.06), rgba(196,135,58,0.04));
+            border: 1px solid rgba(123,94,167,0.12);
+            border-radius: 24px;
+        }
+
+        .contact-success.visible { display: block; }
+
+        .contact-success-icon {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--mauve));
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-success-icon svg {
+            width: 22px; height: 22px;
+            stroke: white;
+        }
+
+        .contact-success h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 0.7rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-success p {
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        /* ── FAQ ───────────────────────────────────────────────── */
+        .contact-faq {
+            background: var(--bg);
+            padding: 5rem 4rem;
+            border-top: 1px solid rgba(123,94,167,0.08);
+        }
+
+        .faq-shell {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            margin-bottom: 3rem;
+        }
+
+        .faq-header h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .faq-item {
+            border-top: 1px solid rgba(123,94,167,0.1);
+        }
+
+        .faq-item:last-child {
+            border-bottom: 1px solid rgba(123,94,167,0.1);
+        }
+
+        .faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text);
+            text-align: left;
+            cursor: none;
+            transition: color 0.2s;
+        }
+
+        .faq-q:hover { color: var(--purple); }
+
+        .faq-q span { flex: 1; line-height: 1.5; }
+
+        .faq-icon {
+            width: 18px; height: 18px;
+            flex-shrink: 0;
+            stroke: var(--muted);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 200px;
+        }
+
+        .faq-a p {
+            padding-bottom: 1.5rem;
+            font-size: 0.87rem;
+            line-height: 1.9;
+            font-weight: 300;
+            color: var(--muted);
+        }
+
+        /* ── ANIMATIONS ────────────────────────────────────────── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── RESPONSIVE ────────────────────────────────────────── */
+        @media (max-width: 900px) {
+            .contact-hero { padding: 0 2rem 4rem; }
+            .contact-body { padding: 4rem 2rem; }
+            .contact-shell {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+            }
+            .contact-info-col { position: static; }
+            .contact-faq { padding: 4rem 2rem; }
+            .field-row { grid-template-columns: 1fr; }
+            .lang-switcher { bottom: 1.2rem; right: 1.2rem; }
+        }
+
+        @media (max-width: 600px) {
+            .contact-hero-title { font-size: clamp(3rem, 14vw, 5rem); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ── NAV ─────────────────────────────────────────────────────── -->
+<nav>
+    <a href="index.html" class="nav-logo">cora</a>
+    <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav.functions">fonctions</a></li>
+        <li><a href="story.html" data-i18n="nav.story">notre histoire</a></li>
+        <li><a href="design.html" data-i18n="nav.design">design</a></li>
+        <li><a href="checkout.html" data-i18n="nav.order">commander</a></li>
+        <li><a href="contact.html" class="active" data-i18n="nav.contact">contact</a></li>
+    <button class="nav-lang-btn" id="navLangBtn" aria-label="Changer de langue" onclick="openLangOverlay()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+        <span id="navLangLabel">FR</span>
+    </button>
+    </ul>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────────── -->
+<section class="contact-hero">
+    <div class="contact-hero-bg"></div>
+    <div class="contact-hero-overlay"></div>
+    <p class="contact-hero-kicker" data-i18n="contact.heroKicker">on est à l'écoute</p>
+    <h1 class="contact-hero-title">
+        <em data-i18n="contact.heroTitle">parle-nous.</em>
+    </h1>
+    <p class="contact-hero-sub" data-i18n="contact.heroSub">
+        une question sur ta commande, une idée à partager, ou juste envie de dire bonjour — on lit tout.
+    </p>
+</section>
+
+<!-- ── CONTACT BODY ─────────────────────────────────────────────── -->
+<section class="contact-body">
+    <div class="contact-shell">
+
+        <!-- Info column -->
+        <div class="contact-info-col reveal">
+            <h2 class="contact-info-title" data-i18n="contact.infoTitle">comment nous joindre</h2>
+            <div class="contact-info-list">
+
+                <div class="contact-info-item">
+                    <span class="contact-info-label" data-i18n="contact.emailLabel">email général</span>
+                    <div class="contact-info-value">
+                        <div class="contact-email-group">
+                            <div class="contact-email-row">
+                                <a href="mailto:bonjour@cora-audio.com">bonjour@cora-audio.com</a>
+                                <span class="contact-email-purpose" data-i18n="contact.emailLabel">email général</span>
+                            </div>
+                            <div class="contact-email-row">
+                                <a href="mailto:support@cora-audio.com">support@cora-audio.com</a>
+                                <span class="contact-email-purpose" data-i18n="contact.supportLabel">support produit</span>
+                            </div>
+                            <div class="contact-email-row">
+                                <a href="mailto:legal@cora-audio.com">legal@cora-audio.com</a>
+                                <span class="contact-email-purpose" data-i18n="contact.legalLabel">questions légales</span>
+                            </div>
+                            <div class="contact-email-row">
+                                <a href="mailto:privacy@cora-audio.com">privacy@cora-audio.com</a>
+                                <span class="contact-email-purpose" data-i18n="contact.privacyLabel">données personnelles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <span class="contact-info-label" data-i18n="contact.addressLabel">siège social</span>
+                    <span class="contact-info-value" data-i18n="contact.addressLine">montréal, québec, canada</span>
+                </div>
+
+                <div class="contact-info-item">
+                    <span class="contact-info-label" data-i18n="contact.hoursLabel">disponibilité</span>
+                    <span class="contact-info-value" data-i18n="contact.hoursLine">lun–ven, 9h–18h (est)</span>
+                </div>
+
+                <div class="contact-info-item">
+                    <span class="contact-info-label" data-i18n="contact.responseLabel">délai de réponse</span>
+                    <span class="contact-info-value" data-i18n="contact.responseLine">sous 48h en semaine</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Form column -->
+        <div class="contact-form-col reveal reveal-delay-1">
+            <h2 class="contact-form-title" data-i18n="contact.formTitle">envoyer un message</h2>
+
+            <!-- Success state -->
+            <div class="contact-success" id="contactSuccess" role="alert">
+                <div class="contact-success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="contact.successTitle">message envoyé.</h3>
+                <p data-i18n="contact.successMsg">on a bien reçu ton message et on te répond sous 48h. merci.</p>
+            </div>
+
+            <!-- Form -->
+            <div id="contactFormWrap">
+                <div class="contact-form" id="contactForm">
+                    <div class="field-row">
+                        <div class="field-group">
+                            <label for="contactName" data-i18n="contact.fieldName">votre nom</label>
+                            <input
+                                type="text"
+                                id="contactName"
+                                name="name"
+                                autocomplete="name"
+                                data-i18n-aria="contact.fieldName"
+                                required
+                            />
+                        </div>
+                        <div class="field-group">
+                            <label for="contactEmail" data-i18n="contact.fieldEmail">votre adresse courriel</label>
+                            <input
+                                type="email"
+                                id="contactEmail"
+                                name="email"
+                                autocomplete="email"
+                                data-i18n-aria="contact.fieldEmail"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="contactSubject" data-i18n="contact.fieldSubject">sujet</label>
+                        <select
+                            id="contactSubject"
+                            name="subject"
+                            data-i18n-options="contact.subjectOptions"
+                        >
+                            <option value="">choisir un sujet</option>
+                            <option value="order">ma commande</option>
+                            <option value="product">question produit</option>
+                            <option value="press">presse &amp; partenariats</option>
+                            <option value="feedback">retour d'expérience</option>
+                            <option value="other">autre</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="contactMessage" data-i18n="contact.fieldMessage">votre message</label>
+                        <textarea
+                            id="contactMessage"
+                            name="message"
+                            data-i18n-placeholder="contact.fieldMessagePlaceholder"
+                            placeholder="raconte-nous ce dont tu as besoin…"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="contact-submit">
+                        <button type="button" class="btn btn-primary" id="contactSubmitBtn" onclick="handleContactSubmit()">
+                            <span data-i18n="contact.submitBtn">envoyer le message</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<section class="contact-faq reveal">
+    <div class="faq-shell">
+        <div class="faq-header">
+            <p class="section-kicker" style="margin-bottom: 0.8rem;" data-i18n="contact.faqTitle">questions fréquentes</p>
+            <h2 data-i18n="contact.faqTitle">questions fréquentes</h2>
+        </div>
+        <div class="faq-list" data-i18n-faq="contact.faqItems">
+            <!-- populated by i18n.js -->
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ───────────────────────────────────────────────────── -->
+<footer>
+    <div class="footer-top">
+        <div>
+            <div class="footer-logo">cora</div>
+            <p class="footer-brand-desc" data-i18n="footer.tagline">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.nav">navigation</h4>
+            <ul>
+                <li><a href="index.html" data-i18n="nav.functions">fonctions</a></li>
+                <li><a href="story.html" data-i18n="nav.story">notre histoire</a></li>
+                <li><a href="design.html" data-i18n="nav.design">design</a></li>
+                <li><a href="checkout.html" data-i18n="nav.order">commander</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.legal">légal</h4>
+            <ul>
+                <li><a href="legal.html#privacy" data-i18n="footer.privacy">politique de confidentialité</a></li>
+                <li><a href="legal.html#cgv" data-i18n="footer.cgv">conditions générales de vente</a></li>
+                <li><a href="legal.html#mentions" data-i18n="footer.mentions">mentions légales</a></li>
+                <li><a href="legal.html#cookies" data-i18n="footer.cookies">cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copy" data-i18n="footer.copy">© 2025 cora, fait par ash</p>
+        <div class="footer-legal">
+            <a href="legal.html#privacy" data-i18n="footer.privacyShort">confidentialité</a>
+            <a href="legal.html#cgv" data-i18n="footer.cgvShort">CGV</a>
+            <a href="legal.html#mentions" data-i18n="footer.mentionsShort">mentions légales</a>
+        </div>
+    </div>
+</footer>
+
+    <button class="lang-toggle" id="langToggle" aria-label="Changer de langue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+        </svg>
+        <span id="langToggleLabel">langue</span>
+    </button>
+</div>
+
+<script src="script.js" defer></script>
+<!-- ── LANG OVERLAY ─────────────────────────────────────────────── -->
+<div class="lang-overlay" id="langOverlay" role="dialog" aria-modal="true" aria-label="Sélection de la langue">
+    <div class="lang-overlay-backdrop" onclick="closeLangOverlay()"></div>
+    <div class="lang-overlay-panel">
+        <div class="lang-overlay-header">
+            <h2 class="lang-overlay-title">choisir <em>ta langue.</em></h2>
+            <button class="lang-overlay-close" onclick="closeLangOverlay()" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="lang-grid">
+            <button class="lang-card" data-lang-btn="fr" onclick="CoraI18n.setLang('fr');closeLangOverlay()">
+                <span class="lang-card-flag">🇫🇷</span>
+                <span class="lang-card-name">Français</span>
+                <span class="lang-card-native">français</span>
+            </button>
+            <button class="lang-card" data-lang-btn="en" onclick="CoraI18n.setLang('en');closeLangOverlay()">
+                <span class="lang-card-flag">🇬🇧</span>
+                <span class="lang-card-name">English</span>
+                <span class="lang-card-native">english</span>
+            </button>
+            <button class="lang-card" data-lang-btn="es" onclick="CoraI18n.setLang('es');closeLangOverlay()">
+                <span class="lang-card-flag">🇪🇸</span>
+                <span class="lang-card-name">Español</span>
+                <span class="lang-card-native">español</span>
+            </button>
+            <button class="lang-card" data-lang-btn="de" onclick="CoraI18n.setLang('de');closeLangOverlay()">
+                <span class="lang-card-flag">🇩🇪</span>
+                <span class="lang-card-name">Deutsch</span>
+                <span class="lang-card-native">deutsch</span>
+            </button>
+            <button class="lang-card" data-lang-btn="it" onclick="CoraI18n.setLang('it');closeLangOverlay()">
+                <span class="lang-card-flag">🇮🇹</span>
+                <span class="lang-card-name">Italiano</span>
+                <span class="lang-card-native">italiano</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ru" onclick="CoraI18n.setLang('ru');closeLangOverlay()">
+                <span class="lang-card-flag">🇷🇺</span>
+                <span class="lang-card-name">Русский</span>
+                <span class="lang-card-native">русский</span>
+            </button>
+            <button class="lang-card" data-lang-btn="pl" onclick="CoraI18n.setLang('pl');closeLangOverlay()">
+                <span class="lang-card-flag">🇵🇱</span>
+                <span class="lang-card-name">Polski</span>
+                <span class="lang-card-native">polski</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ko" onclick="CoraI18n.setLang('ko');closeLangOverlay()">
+                <span class="lang-card-flag">🇰🇷</span>
+                <span class="lang-card-name">한국어</span>
+                <span class="lang-card-native">한국어</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ja" onclick="CoraI18n.setLang('ja');closeLangOverlay()">
+                <span class="lang-card-flag">🇯🇵</span>
+                <span class="lang-card-name">日本語</span>
+                <span class="lang-card-native">日本語</span>
+            </button>
+            <button class="lang-card" data-lang-btn="zh" onclick="CoraI18n.setLang('zh');closeLangOverlay()">
+                <span class="lang-card-flag">🇨🇳</span>
+                <span class="lang-card-name">中文</span>
+                <span class="lang-card-native">中文（简体）</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="i18n.js" defer></script>
+<script>
+function openLangOverlay() {
+    document.getElementById('langOverlay').classList.add('open');
+    document.getElementById('navLangBtn').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeLangOverlay() {
+    document.getElementById('langOverlay').classList.remove('open');
+    document.getElementById('navLangBtn').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLangOverlay(); });
+// Update nav label + active card after lang set
+document.addEventListener('DOMContentLoaded', () => {
+    const labels = {fr:'FR',en:'EN',es:'ES',de:'DE',it:'IT',ru:'RU',pl:'PL',ko:'KO',ja:'JA',zh:'ZH'};
+    const updateNav = () => {
+        const lang = localStorage.getItem('cora_lang') || 'fr';
+        const el = document.getElementById('navLangLabel');
+        if (el) el.textContent = labels[lang] || 'FR';
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('is-active', btn.dataset.langBtn === lang);
+        });
+    };
+    updateNav();
+    const orig = CoraI18n.setLang.bind(CoraI18n);
+    CoraI18n.setLang = (lang) => { orig(lang); updateNav(); };
+});
+</script>
+</body>
+</html>

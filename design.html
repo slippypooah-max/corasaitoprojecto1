@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>cora - design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+    <a href="index.html" class="nav-logo">cora</a>
+    <ul class="nav-links">
+        <li><a href="index.html">fonctions</a></li>
+        <li><a href="story.html">notre histoire</a></li>
+        <li><a href="design.html" class="active">design</a></li>
+        <li><a href="checkout.html">commander</a></li>
+    <button class="nav-lang-btn" id="navLangBtn" aria-label="Changer de langue" onclick="openLangOverlay()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+        <span id="navLangLabel">FR</span>
+    </button>
+    </ul>
+</nav>
+
+<section class="hero design-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-bg2"></div>
+    <div class="hero-overlay"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+
+    <div class="design-hero-layout">
+        <div class="design-copy">
+            <p class="design-kicker">edition atelier</p>
+            <h1 class="hero-title">le son, dessine comme un bijou.</h1>
+            <p class="design-intro">
+                cora n'essaie pas d'avoir l'air technique. il a ete pense comme un objet
+                calme, precis, presque precieux: une silhouette douce, un contact chaud,
+                une presence qui disparait des que la musique commence.
+            </p>
+            <div class="design-actions">
+                <a href="checkout.html" class="btn btn-primary"><span>reserver l'edition signature</span></a>
+                <a href="index.html" class="btn btn-outline"><span>voir les fonctions</span></a>
+            </div>
+            <div class="design-badges">
+                <div class="design-badge">aluminium satine</div>
+                <div class="design-badge">silicone peau douce</div>
+                <div class="design-badge">finition ivoire fumee</div>
+            </div>
+        </div>
+
+        <div class="design-object-wrap reveal reveal-delay-2">
+            <div class="design-object">
+                <div class="design-aura"></div>
+                <div class="design-core"></div>
+                <div class="design-specs">
+                    <div class="spec-card">
+                        <strong>32h</strong>
+                        <span>autonomie totale</span>
+                    </div>
+                    <div class="spec-card">
+                        <strong>12 g</strong>
+                        <span>par ecouteur</span>
+                    </div>
+                    <div class="spec-card">
+                        <strong>IP54</strong>
+                        <span>usage quotidien</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="editorial-band reveal" id="story">
+    <div class="editorial-copy">
+        <p class="section-kicker">concu comme un rituel</p>
+        <h2>un objet que l'on garde sur soi, pas un gadget que l'on tolere.</h2>
+        <p>
+            chaque courbe a ete simplifiee jusqu'a l'essentiel. le boitier ferme avec une
+            retenue magnetique nette, les surfaces captent la lumiere sans briller, et les
+            textures ont ete choisies pour vieillir avec grace plutot qu'avec effet.
+        </p>
+    </div>
+    <div class="material-grid">
+        <article class="material-card reveal reveal-delay-1">
+            <p class="material-eyebrow">matiere</p>
+            <h3>metal satine</h3>
+            <p>une coque temperee, douce sous les doigts, avec un reflet poudre plutot qu'un chrome agressif.</p>
+        </article>
+        <article class="material-card reveal reveal-delay-2">
+            <p class="material-eyebrow">contact</p>
+            <h3>silicone souple</h3>
+            <p>des embouts qui epousent l'oreille sans pression visible, pour rester oublies pendant des heures.</p>
+        </article>
+        <article class="material-card reveal reveal-delay-2">
+            <p class="material-eyebrow">silhouette</p>
+            <h3>volume contenu</h3>
+            <p>aucune masse superflue. la forme disparait dans le profil pour conserver une allure nette.</p>
+        </article>
+        <article class="material-card reveal reveal-delay-3">
+            <p class="material-eyebrow">finitions</p>
+            <h3>palette feutree</h3>
+            <p>ivoire fume, prune minerale, ambre gris. des teintes profondes, sobres, presque textiles.</p>
+        </article>
+    </div>
+</section>
+
+<section class="gallery-section">
+    <div class="gallery-header gallery-copy reveal">
+        <p class="section-kicker">presence discrete</p>
+        <h2>raffine jusque dans les details que l'on ne remarque qu'apres.</h2>
+        <p>
+            le design vend autant la sensation que l'objet lui-meme: moins d'eclat demonstratif,
+            plus de justesse. chaque interaction cherche le calme, la confiance, et cette impression
+            rare qu'un produit a deja compris comment il allait vivre avec toi.
+        </p>
+    </div>
+
+    <div class="gallery-grid">
+        <article class="gallery-card reveal reveal-delay-1">
+            <h3>un boitier qui se glisse dans une poche de veste comme un accessoire de maroquinerie.</h3>
+            <p>arrondis tenus, charniere silencieuse, lignes nettes. pas de rupture visuelle, pas d'effet plastique.</p>
+            <div class="gallery-visual"></div>
+        </article>
+
+        <div class="gallery-stack">
+            <article class="gallery-card dark reveal reveal-delay-2">
+                <h3>silence optique</h3>
+                <p>aucune led envahissante. la technologie se manifeste seulement quand tu en as besoin.</p>
+                <div class="gallery-visual"></div>
+            </article>
+            <article class="gallery-card reveal reveal-delay-3">
+                <h3>equilibre immediat</h3>
+                <p>le poids est distribue pour que l'ecouteur se pose, puis cesse d'exister. c'est la vraie sensation premium.</p>
+                <div class="gallery-visual"></div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="quote-section reveal">
+    <p class="quote-text">"le vrai luxe, c'est un objet tellement juste qu'il n'a rien a prouver."</p>
+    <p class="quote-attr">- direction design cora</p>
+</section>
+
+<section class="signature-panel">
+    <article class="signature-stat reveal reveal-delay-1">
+        <strong>3</strong>
+        <span>finitions lancement</span>
+        <p>des coloris controles, concus pour traverser les saisons sans paraitre dates.</p>
+    </article>
+    <article class="signature-stat reveal reveal-delay-2">
+        <strong>0</strong>
+        <span>ornement inutile</span>
+        <p>aucune couture visuelle gratuite. chaque ligne existe pour le confort, l'equilibre ou la prise en main.</p>
+    </article>
+    <article class="signature-stat reveal reveal-delay-3">
+        <strong>1</strong>
+        <span>edition signature</span>
+        <p>livree avec boitier habille, embouts assortis et gravure discrete a l'interieur de l'etui.</p>
+    </article>
+</section>
+
+<section class="reserve-section" id="reserve">
+    <div class="reserve-card reveal">
+        <div class="reserve-copy">
+            <p class="section-kicker">ouverture des reservations</p>
+            <h2>la premiere serie est pensee pour ceux qui veulent un objet de son, pas juste des specs.</h2>
+            <p>
+                l'edition signature comprend le boitier premium, trois tailles d'embouts, l'etui textile
+                de transport et un acces prioritaire aux prochaines finitions. quantites volontairement limitees.
+            </p>
+        </div>
+        <div class="reserve-meta">
+            <div class="price-line">249,99 <small>ca$</small></div>
+            <p>expedition estimee sous 6 semaines pour la premiere fabrication.</p>
+            <a href="checkout.html" class="btn btn-light"><span>configurer et réserver</span></a>
+            <div class="fine-print">livraison premium incluse au Canada</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-top">
+        <div>
+            <div class="footer-logo">cora</div>
+            <p class="footer-brand-desc">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
+        </div>
+        <div class="footer-col">
+            <h4>navigation</h4>
+            <ul>
+                <li><a href="index.html">fonctions</a></li>
+                <li><a href="story.html">notre histoire</a></li>
+                <li><a href="design.html">design</a></li>
+                <li><a href="checkout.html">commander</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>légal</h4>
+            <ul>
+                <li><a href="legal.html#privacy">politique de confidentialité</a></li>
+                <li><a href="legal.html#cgv">conditions générales de vente</a></li>
+                <li><a href="legal.html#mentions">mentions légales</a></li>
+                <li><a href="legal.html#cookies">cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copy">© 2025 cora, fait par ash</p>
+        <div class="footer-legal">
+            <a href="legal.html#privacy">confidentialité</a>
+            <a href="legal.html#cgv">CGV</a>
+            <a href="legal.html#mentions">mentions légales</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js" defer></script>
+<!-- ── LANG OVERLAY ─────────────────────────────────────────────── -->
+<div class="lang-overlay" id="langOverlay" role="dialog" aria-modal="true" aria-label="Sélection de la langue">
+    <div class="lang-overlay-backdrop" onclick="closeLangOverlay()"></div>
+    <div class="lang-overlay-panel">
+        <div class="lang-overlay-header">
+            <h2 class="lang-overlay-title">choisir <em>ta langue.</em></h2>
+            <button class="lang-overlay-close" onclick="closeLangOverlay()" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="lang-grid">
+            <button class="lang-card" data-lang-btn="fr" onclick="CoraI18n.setLang('fr');closeLangOverlay()">
+                <span class="lang-card-flag">🇫🇷</span>
+                <span class="lang-card-name">Français</span>
+                <span class="lang-card-native">français</span>
+            </button>
+            <button class="lang-card" data-lang-btn="en" onclick="CoraI18n.setLang('en');closeLangOverlay()">
+                <span class="lang-card-flag">🇬🇧</span>
+                <span class="lang-card-name">English</span>
+                <span class="lang-card-native">english</span>
+            </button>
+            <button class="lang-card" data-lang-btn="es" onclick="CoraI18n.setLang('es');closeLangOverlay()">
+                <span class="lang-card-flag">🇪🇸</span>
+                <span class="lang-card-name">Español</span>
+                <span class="lang-card-native">español</span>
+            </button>
+            <button class="lang-card" data-lang-btn="de" onclick="CoraI18n.setLang('de');closeLangOverlay()">
+                <span class="lang-card-flag">🇩🇪</span>
+                <span class="lang-card-name">Deutsch</span>
+                <span class="lang-card-native">deutsch</span>
+            </button>
+            <button class="lang-card" data-lang-btn="it" onclick="CoraI18n.setLang('it');closeLangOverlay()">
+                <span class="lang-card-flag">🇮🇹</span>
+                <span class="lang-card-name">Italiano</span>
+                <span class="lang-card-native">italiano</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ru" onclick="CoraI18n.setLang('ru');closeLangOverlay()">
+                <span class="lang-card-flag">🇷🇺</span>
+                <span class="lang-card-name">Русский</span>
+                <span class="lang-card-native">русский</span>
+            </button>
+            <button class="lang-card" data-lang-btn="pl" onclick="CoraI18n.setLang('pl');closeLangOverlay()">
+                <span class="lang-card-flag">🇵🇱</span>
+                <span class="lang-card-name">Polski</span>
+                <span class="lang-card-native">polski</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ko" onclick="CoraI18n.setLang('ko');closeLangOverlay()">
+                <span class="lang-card-flag">🇰🇷</span>
+                <span class="lang-card-name">한국어</span>
+                <span class="lang-card-native">한국어</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ja" onclick="CoraI18n.setLang('ja');closeLangOverlay()">
+                <span class="lang-card-flag">🇯🇵</span>
+                <span class="lang-card-name">日本語</span>
+                <span class="lang-card-native">日本語</span>
+            </button>
+            <button class="lang-card" data-lang-btn="zh" onclick="CoraI18n.setLang('zh');closeLangOverlay()">
+                <span class="lang-card-flag">🇨🇳</span>
+                <span class="lang-card-name">中文</span>
+                <span class="lang-card-native">中文（简体）</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="i18n.js" defer></script>
+<script>
+function openLangOverlay() {
+    document.getElementById('langOverlay').classList.add('open');
+    document.getElementById('navLangBtn').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeLangOverlay() {
+    document.getElementById('langOverlay').classList.remove('open');
+    document.getElementById('navLangBtn').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLangOverlay(); });
+// Update nav label + active card after lang set
+document.addEventListener('DOMContentLoaded', () => {
+    const labels = {fr:'FR',en:'EN',es:'ES',de:'DE',it:'IT',ru:'RU',pl:'PL',ko:'KO',ja:'JA',zh:'ZH'};
+    const updateNav = () => {
+        const lang = localStorage.getItem('cora_lang') || 'fr';
+        const el = document.getElementById('navLangLabel');
+        if (el) el.textContent = labels[lang] || 'FR';
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('is-active', btn.dataset.langBtn === lang);
+        });
+    };
+    updateNav();
+    const orig = CoraI18n.setLang.bind(CoraI18n);
+    CoraI18n.setLang = (lang) => { orig(lang); updateNav(); };
+});
+</script>
+</body>
+</html>

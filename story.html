@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>cora - notre histoire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <style>
+        .story-hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 4rem 5rem;
+            position: relative; overflow: hidden;
+            background: var(--text);
+        }
+        .story-hero-bg {
+            position: absolute; inset: -10%;
+            background:
+                radial-gradient(ellipse 70% 60% at 10% 20%, rgba(123,94,167,0.55) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 50% at 90% 80%, rgba(196,135,58,0.38) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 60% at 55% 10%, rgba(158,127,168,0.3) 0%, transparent 55%);
+            filter: blur(60px);
+            animation: meshFloat 18s ease-in-out infinite alternate;
+        }
+        .story-hero-overlay { position: absolute; inset: 0; background: rgba(28,21,32,0.55); }
+        .story-hero > *:not(.story-hero-bg):not(.story-hero-overlay) { position: relative; z-index: 2; }
+        .story-hero-kicker {
+            font-size: 0.7rem; letter-spacing: 0.32em; color: var(--purple-light);
+            margin-bottom: 1.4rem;
+            opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s;
+        }
+        .story-hero-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 400; line-height: 1.04; letter-spacing: -0.03em;
+            color: var(--cream); max-width: 820px;
+            opacity: 0; animation: fadeUp 0.9s ease forwards 0.4s;
+        }
+        .story-hero-title em { font-style: italic; color: var(--purple-light); }
+        .story-hero-sub {
+            margin-top: 2rem; font-size: 1rem; line-height: 1.85; font-weight: 300;
+            color: rgba(253,248,242,0.62); max-width: 480px;
+            opacity: 0; animation: fadeUp 0.9s ease forwards 0.65s;
+        }
+        .story-body { background: var(--cream); padding: 6rem 4rem; max-width: 1200px; margin: 0 auto; }
+        .story-chapter {
+            display: grid; grid-template-columns: 1fr 1.6fr;
+            gap: 4rem; padding: 5rem 0;
+            border-top: 1px solid rgba(123,94,167,0.12);
+        }
+        .story-chapter:first-child { border-top: none; padding-top: 0; }
+        .story-chapter-label { font-size: 0.7rem; letter-spacing: 0.28em; color: var(--purple-light); padding-top: 0.3rem; }
+        .story-chapter-num {
+            font-family: 'Instrument Serif', serif;
+            font-size: 6rem; font-weight: 400; line-height: 1; letter-spacing: -0.04em;
+            color: rgba(123,94,167,0.12); margin-top: 0.4rem;
+        }
+        .story-chapter-content h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 400; line-height: 1.2; letter-spacing: -0.02em;
+            color: var(--text); margin-bottom: 1.4rem;
+        }
+        .story-chapter-content h2 em { font-style: italic; color: var(--purple); }
+        .story-chapter-content p { font-size: 0.95rem; line-height: 1.9; font-weight: 300; color: var(--muted); margin-bottom: 1rem; }
+        .story-chapter-content p:last-child { margin-bottom: 0; }
+        .founders-band { background: var(--bg); padding: 5rem 4rem; }
+        .founders-inner { max-width: 1200px; margin: 0 auto; }
+        .founders-kicker { font-size: 0.7rem; letter-spacing: 0.28em; color: var(--purple-light); margin-bottom: 2.5rem; display: block; }
+        .founders-grid { display: grid; grid-template-columns: minmax(0, 440px); justify-content: start; gap: 2rem; }
+        .founder-card { padding: 2rem; border-radius: 24px; border: 1px solid rgba(123,94,167,0.12); background: var(--cream); }
+        .founder-initial {
+            width: 52px; height: 52px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--mauve));
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Instrument Serif', serif; font-size: 1.3rem; color: var(--cream); margin-bottom: 1.2rem;
+        }
+        .founder-name { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; color: var(--text); margin-bottom: 0.3rem; }
+        .founder-role { font-size: 0.72rem; letter-spacing: 0.14em; color: var(--purple-light); margin-bottom: 1rem; }
+        .founder-bio { font-size: 0.88rem; line-height: 1.8; font-weight: 300; color: var(--muted); }
+        .values-section { background: var(--text); padding: 6rem 4rem; }
+        .values-inner { max-width: 1200px; margin: 0 auto; }
+        .values-header { margin-bottom: 3.5rem; }
+        .values-header .kicker { font-size: 0.7rem; letter-spacing: 0.28em; color: var(--purple-light); margin-bottom: 1rem; }
+        .values-header h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 400; line-height: 1.15; letter-spacing: -0.02em;
+            color: var(--cream); max-width: 600px;
+        }
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .value-item { padding: 2rem; border-radius: 20px; border: 1px solid rgba(253,248,242,0.08); background: rgba(253,248,242,0.03); }
+        .value-num {
+            font-family: 'Instrument Serif', serif; font-size: 2.5rem; font-weight: 400; line-height: 1;
+            background: linear-gradient(135deg, var(--purple), var(--amber));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 1rem;
+        }
+        .value-title { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 0.7rem; }
+        .value-body { font-size: 0.85rem; line-height: 1.8; font-weight: 300; color: rgba(253,248,242,0.55); }
+        .story-cta { background: var(--cream); padding: 6rem 4rem; text-align: center; }
+        .story-cta h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 400; letter-spacing: -0.02em; color: var(--text);
+            max-width: 600px; margin: 0 auto 2rem; line-height: 1.15;
+        }
+        .story-cta h2 em { font-style: italic; color: var(--purple); }
+        .story-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        @media (max-width: 900px) {
+            .story-hero { padding: 0 2rem 4rem; }
+            .story-body { padding: 4rem 2rem; }
+            .story-chapter { grid-template-columns: 1fr; gap: 1.5rem; }
+            .story-chapter-num { font-size: 4rem; }
+            .founders-band, .values-section, .story-cta { padding: 4rem 2rem; }
+            .founders-grid, .values-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+    <a href="index.html" class="nav-logo">cora</a>
+    <ul class="nav-links">
+        <li><a href="index.html">fonctions</a></li>
+        <li><a href="story.html" class="active">notre histoire</a></li>
+        <li><a href="design.html">design</a></li>
+        <li><a href="checkout.html">commander</a></li>
+    <button class="nav-lang-btn" id="navLangBtn" aria-label="Changer de langue" onclick="openLangOverlay()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+        <span id="navLangLabel">FR</span>
+    </button>
+    </ul>
+</nav>
+
+<section class="story-hero">
+    <div class="story-hero-bg"></div>
+    <div class="story-hero-overlay"></div>
+    <p class="story-hero-kicker">notre histoire</p>
+    <h1 class="story-hero-title">
+        née d'une frustration.<br/>
+        <em>construite avec intention.</em>
+    </h1>
+    <p class="story-hero-sub">
+        cora n'a pas été fondée dans un laboratoire ou une salle de conférence.
+        elle est née d'une question simple posée un matin dans le métro de montréal.
+    </p>
+</section>
+
+<div class="story-body">
+    <div class="story-chapter reveal">
+        <div>
+            <p class="story-chapter-label">le départ</p>
+            <p class="story-chapter-num">01</p>
+        </div>
+        <div class="story-chapter-content">
+            <h2>pourquoi doit-on choisir entre <em>la musique et le monde</em> ?</h2>
+            <p>tout a commencé dans le métro. ash portait ses écouteurs, perdu dans une playlist, quand quelqu'un lui a dit quelque chose d'important — et il n'a pas entendu. pas une fois. trois fois ce jour-là.</p>
+            <p>retirer ses écouteurs, remettre ses écouteurs. retirer, remettre. on avait accepté ce compromis comme une fatalité. ash a décidé que non.</p>
+        </div>
+    </div>
+    <div class="story-chapter reveal">
+        <div>
+            <p class="story-chapter-label">la vision</p>
+            <p class="story-chapter-num">02</p>
+        </div>
+        <div class="story-chapter-content">
+            <h2>pas plus de son. <em>un son plus intelligent.</em></h2>
+            <p>la plupart des marques courent après les specs — plus de décibels, plus de basses, plus d'isolation. cora a choisi une autre direction : rendre le son contextuel, personnel, adaptable.</p>
+            <p>l'idée n'était pas de te couper du monde plus efficacement. c'était de te laisser décider, à chaque instant, de ce que tu veux entendre et de ce que tu veux laisser passer.</p>
+        </div>
+    </div>
+</div>
+
+<section class="founders-band reveal">
+    <div class="founders-inner">
+        <span class="founders-kicker">a l'origine de cora</span>
+        <div class="founders-grid">
+            <div class="founder-card reveal reveal-delay-1">
+                <div class="founder-initial">a</div>
+                <p class="founder-name">ash</p>
+                <p class="founder-role">produit &amp; vision</p>
+                <p class="founder-bio">ash s'intéresse à la façon dont les objets du quotidien façonnent nos comportements. avant cora, il a travaillé sur des interfaces sonores pour des espaces publics. il croit que le meilleur design est celui qu'on ne remarque pas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="values-section reveal">
+    <div class="values-inner">
+        <div class="values-header">
+            <p class="kicker">ce qu'on défend</p>
+            <h2>trois principes qui guident chaque décision qu'on prend.</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-item reveal reveal-delay-1">
+                <p class="value-num">01</p>
+                <h3 class="value-title">l'écoute t'appartient</h3>
+                <p class="value-body">ton environnement sonore doit être sous ton contrôle — pas géré par un algorithme opaque, pas verrouillé dans un préréglage. cora te donne les outils, tu fais les choix.</p>
+            </div>
+            <div class="value-item reveal reveal-delay-2">
+                <p class="value-num">02</p>
+                <h3 class="value-title">la discrétion est une qualité</h3>
+                <p class="value-body">ni le produit ni la technologie ne devraient s'imposer. cora disparaît dans ton quotidien — dans l'oreille, dans la poche, dans l'utilisation. le meilleur objet est celui qu'on oublie qu'on porte.</p>
+            </div>
+            <div class="value-item reveal reveal-delay-3">
+                <p class="value-num">03</p>
+                <h3 class="value-title">construire lentement, bien</h3>
+                <p class="value-body">on aurait pu sortir plus vite avec quelque chose de moins fini. on a choisi de prendre le temps. l'édition signature est limitée parce qu'on veut la contrôler entièrement, de la matière à la livraison.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="story-cta reveal">
+    <h2>prêt à entendre <em>la différence</em> ?</h2>
+    <div class="story-cta-btns">
+        <a href="checkout.html" class="btn btn-primary"><span>réserver l'édition signature</span></a>
+        <a href="design.html" class="btn btn-outline"><span>voir le design</span></a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-top">
+        <div>
+            <div class="footer-logo">cora</div>
+            <p class="footer-brand-desc">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
+        </div>
+        <div class="footer-col">
+            <h4>navigation</h4>
+            <ul>
+                <li><a href="index.html">fonctions</a></li>
+                <li><a href="story.html">notre histoire</a></li>
+                <li><a href="design.html">design</a></li>
+                <li><a href="checkout.html">commander</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>légal</h4>
+            <ul>
+                <li><a href="legal.html#privacy">politique de confidentialité</a></li>
+                <li><a href="legal.html#cgv">conditions générales de vente</a></li>
+                <li><a href="legal.html#mentions">mentions légales</a></li>
+                <li><a href="legal.html#cookies">cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copy">© 2025 cora, fait par ash</p>
+        <div class="footer-legal">
+            <a href="legal.html#privacy">confidentialité</a>
+            <a href="legal.html#cgv">CGV</a>
+            <a href="legal.html#mentions">mentions légales</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js" defer></script>
+<!-- ── LANG OVERLAY ─────────────────────────────────────────────── -->
+<div class="lang-overlay" id="langOverlay" role="dialog" aria-modal="true" aria-label="Sélection de la langue">
+    <div class="lang-overlay-backdrop" onclick="closeLangOverlay()"></div>
+    <div class="lang-overlay-panel">
+        <div class="lang-overlay-header">
+            <h2 class="lang-overlay-title">choisir <em>ta langue.</em></h2>
+            <button class="lang-overlay-close" onclick="closeLangOverlay()" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="lang-grid">
+            <button class="lang-card" data-lang-btn="fr" onclick="CoraI18n.setLang('fr');closeLangOverlay()">
+                <span class="lang-card-flag">🇫🇷</span>
+                <span class="lang-card-name">Français</span>
+                <span class="lang-card-native">français</span>
+            </button>
+            <button class="lang-card" data-lang-btn="en" onclick="CoraI18n.setLang('en');closeLangOverlay()">
+                <span class="lang-card-flag">🇬🇧</span>
+                <span class="lang-card-name">English</span>
+                <span class="lang-card-native">english</span>
+            </button>
+            <button class="lang-card" data-lang-btn="es" onclick="CoraI18n.setLang('es');closeLangOverlay()">
+                <span class="lang-card-flag">🇪🇸</span>
+                <span class="lang-card-name">Español</span>
+                <span class="lang-card-native">español</span>
+            </button>
+            <button class="lang-card" data-lang-btn="de" onclick="CoraI18n.setLang('de');closeLangOverlay()">
+                <span class="lang-card-flag">🇩🇪</span>
+                <span class="lang-card-name">Deutsch</span>
+                <span class="lang-card-native">deutsch</span>
+            </button>
+            <button class="lang-card" data-lang-btn="it" onclick="CoraI18n.setLang('it');closeLangOverlay()">
+                <span class="lang-card-flag">🇮🇹</span>
+                <span class="lang-card-name">Italiano</span>
+                <span class="lang-card-native">italiano</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ru" onclick="CoraI18n.setLang('ru');closeLangOverlay()">
+                <span class="lang-card-flag">🇷🇺</span>
+                <span class="lang-card-name">Русский</span>
+                <span class="lang-card-native">русский</span>
+            </button>
+            <button class="lang-card" data-lang-btn="pl" onclick="CoraI18n.setLang('pl');closeLangOverlay()">
+                <span class="lang-card-flag">🇵🇱</span>
+                <span class="lang-card-name">Polski</span>
+                <span class="lang-card-native">polski</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ko" onclick="CoraI18n.setLang('ko');closeLangOverlay()">
+                <span class="lang-card-flag">🇰🇷</span>
+                <span class="lang-card-name">한국어</span>
+                <span class="lang-card-native">한국어</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ja" onclick="CoraI18n.setLang('ja');closeLangOverlay()">
+                <span class="lang-card-flag">🇯🇵</span>
+                <span class="lang-card-name">日本語</span>
+                <span class="lang-card-native">日本語</span>
+            </button>
+            <button class="lang-card" data-lang-btn="zh" onclick="CoraI18n.setLang('zh');closeLangOverlay()">
+                <span class="lang-card-flag">🇨🇳</span>
+                <span class="lang-card-name">中文</span>
+                <span class="lang-card-native">中文（简体）</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="i18n.js" defer></script>
+<script>
+function openLangOverlay() {
+    document.getElementById('langOverlay').classList.add('open');
+    document.getElementById('navLangBtn').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeLangOverlay() {
+    document.getElementById('langOverlay').classList.remove('open');
+    document.getElementById('navLangBtn').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLangOverlay(); });
+// Update nav label + active card after lang set
+document.addEventListener('DOMContentLoaded', () => {
+    const labels = {fr:'FR',en:'EN',es:'ES',de:'DE',it:'IT',ru:'RU',pl:'PL',ko:'KO',ja:'JA',zh:'ZH'};
+    const updateNav = () => {
+        const lang = localStorage.getItem('cora_lang') || 'fr';
+        const el = document.getElementById('navLangLabel');
+        if (el) el.textContent = labels[lang] || 'FR';
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('is-active', btn.dataset.langBtn === lang);
+        });
+    };
+    updateNav();
+    const orig = CoraI18n.setLang.bind(CoraI18n);
+    CoraI18n.setLang = (lang) => { orig(lang); updateNav(); };
+});
+</script>
+</body>
+</html>

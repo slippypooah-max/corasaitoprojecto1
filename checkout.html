@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>cora - checkout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="checkout-body">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+    <a href="index.html" class="nav-logo">cora</a>
+    <ul class="nav-links">
+        <li><a href="index.html">fonctions</a></li>
+        <li><a href="story.html">notre histoire</a></li>
+        <li><a href="design.html">design</a></li>
+        <li><a href="checkout.html" class="active">commander</a></li>
+    <button class="nav-lang-btn" id="navLangBtn" aria-label="Changer de langue" onclick="openLangOverlay()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+        <span id="navLangLabel">FR</span>
+    </button>
+    </ul>
+</nav>
+
+<main class="checkout-page">
+    <section class="checkout-shell">
+        <form id="checkout-form" class="checkout-panel" data-checkout-form data-base-price="249.99">
+            <div class="checkout-header reveal">
+                <p class="section-kicker">configurateur signature</p>
+                <h1>compose une edition cora a ton image.</h1>
+                <p>produit, teinte, pack, livraison.</p>
+            </div>
+
+            <section class="product-stage reveal reveal-delay-1">
+                <div class="product-visual-shell" data-product-stage data-product="earbuds" data-color="ivory">
+                    <div class="visual-glow"></div>
+                    <div class="visual-product visual-earbuds">
+                        <div class="earbud earbud-left"><span class="earbud-core"></span></div>
+                        <div class="earbud earbud-right"><span class="earbud-core"></span></div>
+                    </div>
+                    <div class="visual-product visual-headset">
+                        <div class="headset-band"></div>
+                        <div class="headset-cup headset-cup-left"><span></span></div>
+                        <div class="headset-cup headset-cup-right"><span></span></div>
+                    </div>
+                </div>
+                <div class="product-stage-copy">
+                    <p class="step-count">apercu</p>
+                    <h2 data-stage-product>ecouteurs cora</h2>
+                    <p data-stage-copy>compact, discret, quotidien.</p>
+                    <div class="stage-pills">
+                        <span class="stage-pill" data-stage-price>249,99 ca$</span>
+                        <span class="stage-pill" data-stage-color-name>ivoire fumee</span>
+                    </div>
+                    <div class="stage-swatches">
+                        <span class="stage-swatch is-active" data-stage-swatch="ivory"></span>
+                        <span class="stage-swatch" data-stage-swatch="prune"></span>
+                        <span class="stage-swatch" data-stage-swatch="amber"></span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="checkout-grid">
+                <section class="step-card reveal reveal-delay-1">
+                    <p class="step-count">01 / produit</p>
+                    <h2 class="step-title">choisis le format.</h2>
+                    <p class="step-copy">deux formats.</p>
+                    <div class="choice-grid single">
+                        <div>
+                            <input class="option-input" type="radio" name="product" id="product-earbuds" checked data-label="ecouteurs cora" data-price="249.99" data-visual="earbuds" data-stage-copy="compact, discret, quotidien."/>
+                            <label class="choice-card media" for="product-earbuds">
+                                <span class="mini-visual mini-earbuds"></span>
+                                <span class="choice-copy">
+                                    <span class="choice-eyebrow">compact</span>
+                                    <strong>ecouteurs cora</strong>
+                                    <p>leger, mobile.</p>
+                                    <span class="choice-price">249,99 ca$</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="option-input" type="radio" name="product" id="product-headset" data-label="casque cora" data-price="489.99" data-visual="headset" data-stage-copy="ample, enveloppant, studio."/>
+                            <label class="choice-card media" for="product-headset">
+                                <span class="mini-visual mini-headset"></span>
+                                <span class="choice-copy">
+                                    <span class="choice-eyebrow">studio</span>
+                                    <strong>casque cora</strong>
+                                    <p>ample, immersif.</p>
+                                    <span class="choice-price">489,99 ca$</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="step-card reveal reveal-delay-1">
+                    <p class="step-count">02 / couleur</p>
+                    <h2 class="step-title">choisis la teinte.</h2>
+                    <p class="step-copy">trois options.</p>
+                    <div class="choice-grid">
+                        <div>
+                            <input class="option-input" type="radio" name="color" id="color-ivory" checked data-label="ivoire fumee" data-price="0" data-color="ivory"/>
+                            <label class="choice-card" for="color-ivory">
+                                <span class="color-dot color-ivory"></span>
+                                <strong>ivoire fumee</strong>
+                                <p>douce.</p>
+                                <span class="choice-price">inclus</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="option-input" type="radio" name="color" id="color-prune" data-label="prune minerale" data-price="18" data-color="prune"/>
+                            <label class="choice-card" for="color-prune">
+                                <span class="color-dot color-prune"></span>
+                                <strong>prune minerale</strong>
+                                <p>profonde.</p>
+                                <span class="choice-price">+ 18,00 ca$</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="option-input" type="radio" name="color" id="color-amber" data-label="ambre satine" data-price="18" data-color="amber"/>
+                            <label class="choice-card" for="color-amber">
+                                <span class="color-dot color-amber"></span>
+                                <strong>ambre satine</strong>
+                                <p>chaude.</p>
+                                <span class="choice-price">+ 18,00 ca$</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="step-card reveal reveal-delay-1">
+                    <p class="step-count">03 / profil</p>
+                    <h2 class="step-title">choisis le profil.</h2>
+                    <p class="step-copy">deux sensations.</p>
+                    <div class="choice-grid">
+                        <div>
+                            <input class="option-input" type="radio" name="profile" id="profile-discreet" checked data-label="discret" data-price="0"/>
+                            <label class="choice-card" for="profile-discreet">
+                                <span class="choice-eyebrow">quotidien</span>
+                                <strong>discret</strong>
+                                <p>souple.</p>
+                                <span class="choice-price">inclus</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="option-input" type="radio" name="profile" id="profile-studio" data-label="studio" data-price="0"/>
+                            <label class="choice-card" for="profile-studio">
+                                <span class="choice-eyebrow">precis</span>
+                                <strong>studio</strong>
+                                <p>ferme.</p>
+                                <span class="choice-price">inclus</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="step-card reveal reveal-delay-2">
+                    <p class="step-count">04 / accessoires</p>
+                    <h2 class="step-title">ajoute un pack.</h2>
+                    <p class="step-copy">trois niveaux.</p>
+                    <div class="choice-grid">
+                        <div>
+                            <input class="option-input" type="radio" name="pack" id="pack-core" checked data-label="pack essentiel" data-price="0"/>
+                            <label class="choice-card" for="pack-core">
+                                <span class="choice-eyebrow">base</span>
+                                <strong>pack essentiel</strong>
+                                <p>essentiel.</p>
+                                <span class="choice-price">inclus</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="option-input" type="radio" name="pack" id="pack-textile" data-label="etui textile signature" data-price="39"/>
+                            <label class="choice-card" for="pack-textile">
+                                <span class="choice-eyebrow">soft carry</span>
+                                <strong>etui textile signature</strong>
+                                <p>etui.</p>
+                                <span class="choice-price">+ 39,00 ca$</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="option-input" type="radio" name="pack" id="pack-dock" data-label="socle de charge atelier" data-price="69"/>
+                            <label class="choice-card" for="pack-dock">
+                                <span class="choice-eyebrow">desk set</span>
+                                <strong>socle de charge atelier</strong>
+                                <p>dock.</p>
+                                <span class="choice-price">+ 69,00 ca$</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="step-card reveal reveal-delay-3">
+                    <p class="step-count">05 / gravure</p>
+                    <h2 class="step-title">ajoute une signature discrete.</h2>
+                    <p class="step-copy">optionnelle.</p>
+                    <div class="field-grid">
+                        <div class="field">
+                            <label for="engraving">gravure interieure</label>
+                            <input id="engraving" name="engraving" type="text" maxlength="18" placeholder="initiales, mot, date" data-engraving-input/>
+                            <small>+ 24,00 ca$.</small>
+                        </div>
+                        <div class="field">
+                            <label for="concierge-note">note atelier</label>
+                            <input id="concierge-note" name="concierge-note" type="text" maxlength="40" placeholder="ex. cadeau, date precise"/>
+                            <small>facultatif.</small>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="step-card reveal reveal-delay-3">
+                    <p class="step-count">06 / livraison</p>
+                    <h2 class="step-title">choisis la livraison.</h2>
+                    <p class="step-copy">trois vitesses.</p>
+                    <div class="choice-grid single">
+                        <div>
+                            <input class="option-input" type="radio" name="delivery" id="delivery-standard" checked data-label="livraison premium standard" data-price="0"/>
+                            <label class="choice-card inline" for="delivery-standard">
+                                <div>
+                                    <span class="choice-eyebrow">6 semaines</span>
+                                    <strong>standard</strong>
+                                    <p>normal.</p>
+                                </div>
+                                <span class="choice-price">inclus</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="option-input" type="radio" name="delivery" id="delivery-express" data-label="express 48 h apres production" data-price="24"/>
+                            <label class="choice-card inline" for="delivery-express">
+                                <div>
+                                    <span class="choice-eyebrow">rapide</span>
+                                    <strong>express</strong>
+                                    <p>rapide.</p>
+                                </div>
+                                <span class="choice-price">+ 24,00 ca$</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="option-input" type="radio" name="delivery" id="delivery-concierge" data-label="remise concierge sur rendez-vous" data-price="39"/>
+                            <label class="choice-card inline" for="delivery-concierge">
+                                <div>
+                                    <span class="choice-eyebrow">signature</span>
+                                    <strong>concierge</strong>
+                                    <p>sur rendez-vous.</p>
+                                </div>
+                                <span class="choice-price">+ 39,00 ca$</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </form>
+
+        <aside class="summary-panel reveal reveal-delay-2">
+            <p class="summary-kicker">resume de commande</p>
+            <h2 class="summary-title">configuration cora</h2>
+            <div class="summary-topline">
+                <div>
+                    <div class="summary-price" data-summary-total>249,99 ca$</div>
+                    <p class="summary-sub" data-summary-build>ecouteurs cora - ivoire fumee</p>
+                </div>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-list">
+                <div class="summary-row">
+                    <div>
+                        <strong>produit</strong>
+                        <span data-summary-product>ecouteurs cora</span>
+                    </div>
+                    <div class="summary-value" data-summary-price>249,99 ca$</div>
+                </div>
+                <div class="summary-row">
+                    <div>
+                        <strong>couleur</strong>
+                        <span data-summary-color>ivoire fumee</span>
+                    </div>
+                    <div class="summary-value" data-summary-color-price>inclus</div>
+                </div>
+                <div class="summary-row">
+                    <div>
+                        <strong>profil</strong>
+                        <span data-summary-profile>discret</span>
+                    </div>
+                    <div class="summary-value">inclus</div>
+                </div>
+                <div class="summary-row">
+                    <div>
+                        <strong>pack</strong>
+                        <span data-summary-pack>pack essentiel</span>
+                    </div>
+                    <div class="summary-value" data-summary-pack-price>inclus</div>
+                </div>
+                <div class="summary-row">
+                    <div>
+                        <strong>gravure</strong>
+                        <span data-summary-engraving>sans gravure</span>
+                    </div>
+                    <div class="summary-value" data-summary-engraving-price>inclus</div>
+                </div>
+                <div class="summary-row">
+                    <div>
+                        <strong>livraison</strong>
+                        <span data-summary-delivery>livraison premium standard</span>
+                    </div>
+                    <div class="summary-value" data-summary-delivery-price>inclus</div>
+                </div>
+            </div>
+
+            <div class="summary-total">
+                <div>
+                    <strong>total estime</strong>
+                    <span data-summary-total>249,99 ca$</span>
+                </div>
+            </div>
+
+            <div class="summary-actions">
+                <button type="button" class="btn btn-primary"><span>continuer vers le paiement</span></button>
+                <p class="summary-note">adresse et paiement ensuite.</p>
+            </div>
+        </aside>
+    </section>
+
+    <section class="checkout-note">
+        <article class="checkout-note-card reveal reveal-delay-1">
+            <strong>30 jours</strong>
+            <p>essai.</p>
+        </article>
+        <article class="checkout-note-card reveal reveal-delay-2">
+            <strong>support concierge</strong>
+            <p>support.</p>
+        </article>
+        <article class="checkout-note-card reveal reveal-delay-3">
+            <strong>serie limitee</strong>
+            <p>quantites limitees.</p>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-top">
+        <div>
+            <div class="footer-logo">cora</div>
+            <p class="footer-brand-desc">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
+        </div>
+        <div class="footer-col">
+            <h4>navigation</h4>
+            <ul>
+                <li><a href="index.html">fonctions</a></li>
+                <li><a href="story.html">notre histoire</a></li>
+                <li><a href="design.html">design</a></li>
+                <li><a href="checkout.html">commander</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>légal</h4>
+            <ul>
+                <li><a href="legal.html#privacy">politique de confidentialité</a></li>
+                <li><a href="legal.html#cgv">conditions générales de vente</a></li>
+                <li><a href="legal.html#mentions">mentions légales</a></li>
+                <li><a href="legal.html#cookies">cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copy">© 2025 cora, fait par ash</p>
+        <div class="footer-legal">
+            <a href="legal.html#privacy">confidentialité</a>
+            <a href="legal.html#cgv">CGV</a>
+            <a href="legal.html#mentions">mentions légales</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js" defer></script>
+<!-- ── LANG OVERLAY ─────────────────────────────────────────────── -->
+<div class="lang-overlay" id="langOverlay" role="dialog" aria-modal="true" aria-label="Sélection de la langue">
+    <div class="lang-overlay-backdrop" onclick="closeLangOverlay()"></div>
+    <div class="lang-overlay-panel">
+        <div class="lang-overlay-header">
+            <h2 class="lang-overlay-title">choisir <em>ta langue.</em></h2>
+            <button class="lang-overlay-close" onclick="closeLangOverlay()" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="lang-grid">
+            <button class="lang-card" data-lang-btn="fr" onclick="CoraI18n.setLang('fr');closeLangOverlay()">
+                <span class="lang-card-flag">🇫🇷</span>
+                <span class="lang-card-name">Français</span>
+                <span class="lang-card-native">français</span>
+            </button>
+            <button class="lang-card" data-lang-btn="en" onclick="CoraI18n.setLang('en');closeLangOverlay()">
+                <span class="lang-card-flag">🇬🇧</span>
+                <span class="lang-card-name">English</span>
+                <span class="lang-card-native">english</span>
+            </button>
+            <button class="lang-card" data-lang-btn="es" onclick="CoraI18n.setLang('es');closeLangOverlay()">
+                <span class="lang-card-flag">🇪🇸</span>
+                <span class="lang-card-name">Español</span>
+                <span class="lang-card-native">español</span>
+            </button>
+            <button class="lang-card" data-lang-btn="de" onclick="CoraI18n.setLang('de');closeLangOverlay()">
+                <span class="lang-card-flag">🇩🇪</span>
+                <span class="lang-card-name">Deutsch</span>
+                <span class="lang-card-native">deutsch</span>
+            </button>
+            <button class="lang-card" data-lang-btn="it" onclick="CoraI18n.setLang('it');closeLangOverlay()">
+                <span class="lang-card-flag">🇮🇹</span>
+                <span class="lang-card-name">Italiano</span>
+                <span class="lang-card-native">italiano</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ru" onclick="CoraI18n.setLang('ru');closeLangOverlay()">
+                <span class="lang-card-flag">🇷🇺</span>
+                <span class="lang-card-name">Русский</span>
+                <span class="lang-card-native">русский</span>
+            </button>
+            <button class="lang-card" data-lang-btn="pl" onclick="CoraI18n.setLang('pl');closeLangOverlay()">
+                <span class="lang-card-flag">🇵🇱</span>
+                <span class="lang-card-name">Polski</span>
+                <span class="lang-card-native">polski</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ko" onclick="CoraI18n.setLang('ko');closeLangOverlay()">
+                <span class="lang-card-flag">🇰🇷</span>
+                <span class="lang-card-name">한국어</span>
+                <span class="lang-card-native">한국어</span>
+            </button>
+            <button class="lang-card" data-lang-btn="ja" onclick="CoraI18n.setLang('ja');closeLangOverlay()">
+                <span class="lang-card-flag">🇯🇵</span>
+                <span class="lang-card-name">日本語</span>
+                <span class="lang-card-native">日本語</span>
+            </button>
+            <button class="lang-card" data-lang-btn="zh" onclick="CoraI18n.setLang('zh');closeLangOverlay()">
+                <span class="lang-card-flag">🇨🇳</span>
+                <span class="lang-card-name">中文</span>
+                <span class="lang-card-native">中文（简体）</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="i18n.js" defer></script>
+<script>
+function openLangOverlay() {
+    document.getElementById('langOverlay').classList.add('open');
+    document.getElementById('navLangBtn').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeLangOverlay() {
+    document.getElementById('langOverlay').classList.remove('open');
+    document.getElementById('navLangBtn').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLangOverlay(); });
+// Update nav label + active card after lang set
+document.addEventListener('DOMContentLoaded', () => {
+    const labels = {fr:'FR',en:'EN',es:'ES',de:'DE',it:'IT',ru:'RU',pl:'PL',ko:'KO',ja:'JA',zh:'ZH'};
+    const updateNav = () => {
+        const lang = localStorage.getItem('cora_lang') || 'fr';
+        const el = document.getElementById('navLangLabel');
+        if (el) el.textContent = labels[lang] || 'FR';
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('is-active', btn.dataset.langBtn === lang);
+        });
+    };
+    updateNav();
+    const orig = CoraI18n.setLang.bind(CoraI18n);
+    CoraI18n.setLang = (lang) => { orig(lang); updateNav(); };
+});
+</script>
+</body>
+</html>
