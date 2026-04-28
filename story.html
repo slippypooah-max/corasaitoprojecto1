@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>cora - notre histoire</title>
+    <title data-i18n="story.pageTitle">cora - notre histoire</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="styles.css"/>
     <style>
@@ -125,12 +125,12 @@
 <div class="cursor-ring" id="cursorRing"></div>
 
 <nav>
-    <a href="index.html" class="nav-logo">cora</a>
+    <a href="index.html" class="nav-logo" data-i18n="nav.logo">cora</a>
     <ul class="nav-links">
-        <li><a href="index.html">fonctions</a></li>
-        <li><a href="story.html" class="active">notre histoire</a></li>
-        <li><a href="design.html">design</a></li>
-        <li><a href="checkout.html">commander</a></li>
+        <li><a href="index.html" data-i18n="nav.functions">fonctions</a></li>
+        <li><a href="story.html" class="active" data-i18n="nav.story">notre histoire</a></li>
+        <li><a href="design.html" data-i18n="nav.design">design</a></li>
+        <li><a href="checkout.html" data-i18n="nav.order">commander</a></li>
     <button class="nav-lang-btn" id="navLangBtn" aria-label="Changer de langue" onclick="openLangOverlay()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
         <span id="navLangLabel">FR</span>
@@ -141,51 +141,48 @@
 <section class="story-hero">
     <div class="story-hero-bg"></div>
     <div class="story-hero-overlay"></div>
-    <p class="story-hero-kicker">notre histoire</p>
+    <p class="story-hero-kicker" data-i18n="story.heroKicker">notre histoire</p>
     <h1 class="story-hero-title">
-        née d'une frustration.<br/>
-        <em>construite avec intention.</em>
+        <span data-i18n="story.heroTitle">née d'une frustration.</span><br/>
+        <em data-i18n="story.heroTitleEm">construite avec intention.</em>
     </h1>
-    <p class="story-hero-sub">
-        cora n'a pas été fondée dans un laboratoire ou une salle de conférence.
-        elle est née d'une question simple posée un matin dans le métro de montréal.
-    </p>
+    <p class="story-hero-sub" data-i18n="story.heroSub">cora n'a pas été fondée dans un laboratoire ou une salle de conférence. elle est née d'une question simple posée un matin dans le métro de montréal.</p>
 </section>
 
 <div class="story-body">
     <div class="story-chapter reveal">
         <div>
-            <p class="story-chapter-label">le départ</p>
-            <p class="story-chapter-num">01</p>
+            <p class="story-chapter-label" data-i18n="story.chapter1Label">le départ</p>
+            <p class="story-chapter-num" data-i18n="story.chapter1Num">01</p>
         </div>
         <div class="story-chapter-content">
-            <h2>pourquoi doit-on choisir entre <em>la musique et le monde</em> ?</h2>
-            <p>tout a commencé dans le métro. ash portait ses écouteurs, perdu dans une playlist, quand quelqu'un lui a dit quelque chose d'important — et il n'a pas entendu. pas une fois. trois fois ce jour-là.</p>
-            <p>retirer ses écouteurs, remettre ses écouteurs. retirer, remettre. on avait accepté ce compromis comme une fatalité. ash a décidé que non.</p>
+            <h2><span data-i18n="story.chapter1Title">pourquoi doit-on choisir entre</span> <em data-i18n="story.chapter1TitleEm">la musique et le monde</em> ?</h2>
+            <p data-i18n="story.chapter1Text1">tout a commencé dans le métro. ash portait ses écouteurs, perdu dans une playlist, quand quelqu'un lui a dit quelque chose d'important — et il n'a pas entendu. pas une fois. trois fois ce jour-là.</p>
+            <p data-i18n="story.chapter1Text2">retirer ses écouteurs, remettre ses écouteurs. retirer, remettre. on avait accepté ce compromis comme une fatalité. ash a décidé que non.</p>
         </div>
     </div>
     <div class="story-chapter reveal">
         <div>
-            <p class="story-chapter-label">la vision</p>
-            <p class="story-chapter-num">02</p>
+            <p class="story-chapter-label" data-i18n="story.chapter2Label">la vision</p>
+            <p class="story-chapter-num" data-i18n="story.chapter2Num">02</p>
         </div>
         <div class="story-chapter-content">
-            <h2>pas plus de son. <em>un son plus intelligent.</em></h2>
-            <p>la plupart des marques courent après les specs — plus de décibels, plus de basses, plus d'isolation. cora a choisi une autre direction : rendre le son contextuel, personnel, adaptable.</p>
-            <p>l'idée n'était pas de te couper du monde plus efficacement. c'était de te laisser décider, à chaque instant, de ce que tu veux entendre et de ce que tu veux laisser passer.</p>
+            <h2><span data-i18n="story.chapter2Title">pas plus de son.</span> <em data-i18n="story.chapter2TitleEm">un son plus intelligent.</em></h2>
+            <p data-i18n="story.chapter2Text1">la plupart des marques courent après les specs — plus de décibels, plus de basses, plus d'isolation. cora a choisi une autre direction : rendre le son contextuel, personnel, adaptable.</p>
+            <p data-i18n="story.chapter2Text2">l'idée n'était pas de te couper du monde plus efficacement. c'était de te laisser décider, à chaque instant, de ce que tu veux entendre et de ce que tu veux laisser passer.</p>
         </div>
     </div>
 </div>
 
 <section class="founders-band reveal">
     <div class="founders-inner">
-        <span class="founders-kicker">a l'origine de cora</span>
+        <span class="founders-kicker" data-i18n="story.foundersKicker">à l'origine de cora</span>
         <div class="founders-grid">
             <div class="founder-card reveal reveal-delay-1">
                 <div class="founder-initial">a</div>
-                <p class="founder-name">ash</p>
-                <p class="founder-role">produit &amp; vision</p>
-                <p class="founder-bio">ash s'intéresse à la façon dont les objets du quotidien façonnent nos comportements. avant cora, il a travaillé sur des interfaces sonores pour des espaces publics. il croit que le meilleur design est celui qu'on ne remarque pas.</p>
+                <p class="founder-name" data-i18n="story.founderName">ash</p>
+                <p class="founder-role" data-i18n="story.founderRole">produit &amp; vision</p>
+                <p class="founder-bio" data-i18n="story.founderBio">ash s'intéresse à la façon dont les objets du quotidien façonnent nos comportements. avant cora, il a travaillé sur des interfaces sonores pour des espaces publics. il croit que le meilleur design est celui qu'on ne remarque pas.</p>
             </div>
         </div>
     </div>
@@ -194,68 +191,68 @@
 <section class="values-section reveal">
     <div class="values-inner">
         <div class="values-header">
-            <p class="kicker">ce qu'on défend</p>
-            <h2>trois principes qui guident chaque décision qu'on prend.</h2>
+            <p class="kicker" data-i18n="story.valuesKicker">ce qu'on défend</p>
+            <h2 data-i18n="story.valuesTitle">trois principes qui guident chaque décision qu'on prend.</h2>
         </div>
         <div class="values-grid">
             <div class="value-item reveal reveal-delay-1">
-                <p class="value-num">01</p>
-                <h3 class="value-title">l'écoute t'appartient</h3>
-                <p class="value-body">ton environnement sonore doit être sous ton contrôle — pas géré par un algorithme opaque, pas verrouillé dans un préréglage. cora te donne les outils, tu fais les choix.</p>
+                <p class="value-num" data-i18n="story.value1Num">01</p>
+                <h3 class="value-title" data-i18n="story.value1Title">l'écoute t'appartient</h3>
+                <p class="value-body" data-i18n="story.value1Text">ton environnement sonore doit être sous ton contrôle — pas géré par un algorithme opaque, pas verrouillé dans un préréglage. cora te donne les outils, tu fais les choix.</p>
             </div>
             <div class="value-item reveal reveal-delay-2">
-                <p class="value-num">02</p>
-                <h3 class="value-title">la discrétion est une qualité</h3>
-                <p class="value-body">ni le produit ni la technologie ne devraient s'imposer. cora disparaît dans ton quotidien — dans l'oreille, dans la poche, dans l'utilisation. le meilleur objet est celui qu'on oublie qu'on porte.</p>
+                <p class="value-num" data-i18n="story.value2Num">02</p>
+                <h3 class="value-title" data-i18n="story.value2Title">la discrétion est une qualité</h3>
+                <p class="value-body" data-i18n="story.value2Text">ni le produit ni la technologie ne devraient s'imposer. cora disparaît dans ton quotidien — dans l'oreille, dans la poche, dans l'utilisation. le meilleur objet est celui qu'on oublie qu'on porte.</p>
             </div>
             <div class="value-item reveal reveal-delay-3">
-                <p class="value-num">03</p>
-                <h3 class="value-title">construire lentement, bien</h3>
-                <p class="value-body">on aurait pu sortir plus vite avec quelque chose de moins fini. on a choisi de prendre le temps. l'édition signature est limitée parce qu'on veut la contrôler entièrement, de la matière à la livraison.</p>
+                <p class="value-num" data-i18n="story.value3Num">03</p>
+                <h3 class="value-title" data-i18n="story.value3Title">construire lentement, bien</h3>
+                <p class="value-body" data-i18n="story.value3Text">on aurait pu sortir plus vite avec quelque chose de moins fini. on a choisi de prendre le temps. l'édition signature est limitée parce qu'on veut la contrôler entièrement, de la matière à la livraison.</p>
             </div>
         </div>
     </div>
 </section>
 
 <section class="story-cta reveal">
-    <h2>prêt à entendre <em>la différence</em> ?</h2>
+    <h2><span data-i18n="story.ctaTitle">prêt à entendre</span> <em data-i18n="story.ctaTitleEm">la différence</em> ?</h2>
     <div class="story-cta-btns">
-        <a href="checkout.html" class="btn btn-primary"><span>réserver l'édition signature</span></a>
-        <a href="design.html" class="btn btn-outline"><span>voir le design</span></a>
+        <a href="checkout.html" class="btn btn-primary"><span data-i18n="story.ctaBtnPrimary">réserver l'édition signature</span></a>
+        <a href="design.html" class="btn btn-outline"><span data-i18n="story.ctaBtnSecondary">voir le design</span></a>
     </div>
 </section>
 
 <footer>
     <div class="footer-top">
         <div>
-            <div class="footer-logo">cora</div>
-            <p class="footer-brand-desc">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
+            <div class="footer-logo" data-i18n="nav.logo">cora</div>
+            <p class="footer-brand-desc" data-i18n="footer.tagline">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
         </div>
         <div class="footer-col">
-            <h4>navigation</h4>
+            <h4 data-i18n="footer.nav">navigation</h4>
             <ul>
-                <li><a href="index.html">fonctions</a></li>
-                <li><a href="story.html">notre histoire</a></li>
-                <li><a href="design.html">design</a></li>
-                <li><a href="checkout.html">commander</a></li>
+                <li><a href="index.html" data-i18n="nav.functions">fonctions</a></li>
+                <li><a href="story.html" data-i18n="nav.story">notre histoire</a></li>
+                <li><a href="design.html" data-i18n="nav.design">design</a></li>
+                <li><a href="checkout.html" data-i18n="nav.order">commander</a></li>
             </ul>
         </div>
         <div class="footer-col">
-            <h4>légal</h4>
+            <h4 data-i18n="footer.legal">légal</h4>
             <ul>
-                <li><a href="legal.html#privacy">politique de confidentialité</a></li>
-                <li><a href="legal.html#cgv">conditions générales de vente</a></li>
-                <li><a href="legal.html#mentions">mentions légales</a></li>
-                <li><a href="legal.html#cookies">cookies</a></li>
+                <li><a href="legal.html#privacy" data-i18n="footer.privacy">politique de confidentialité</a></li>
+                <li><a href="legal.html#cgv" data-i18n="footer.cgv">conditions générales de vente</a></li>
+                <li><a href="legal.html#mentions" data-i18n="footer.mentions">mentions légales</a></li>
+                <li><a href="legal.html#cookies" data-i18n="footer.cookies">cookies</a></li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
-        <p class="footer-copy">© 2025 cora, fait par ash</p>
+        <p class="footer-copy" data-i18n="footer.copy">© 2025 cora, fait par ash</p>
         <div class="footer-legal">
-            <a href="legal.html#privacy">confidentialité</a>
-            <a href="legal.html#cgv">CGV</a>
-            <a href="legal.html#mentions">mentions légales</a>
+            <a href="legal.html#privacy" data-i18n="footer.privacyShort">confidentialité</a>
+            <a href="legal.html#cgv" data-i18n="footer.cgvShort">CGV</a>
+            <a href="legal.html#mentions" data-i18n="footer.mentionsShort">mentions légales</a>
         </div>
     </div>
 </footer>
@@ -339,7 +336,6 @@ function closeLangOverlay() {
     document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLangOverlay(); });
-// Update nav label + active card after lang set
 document.addEventListener('DOMContentLoaded', () => {
     const labels = {fr:'FR',en:'EN',es:'ES',de:'DE',it:'IT',ru:'RU',pl:'PL',ko:'KO',ja:'JA',zh:'ZH'};
     const updateNav = () => {
