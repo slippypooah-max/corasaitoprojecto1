@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>cora — enfin, des écouteurs qui comprennent.</title>
+    <title data-i18n="home.pageTitle">cora — enfin, des écouteurs qui comprennent.</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="styles.css"/>
 </head>
@@ -15,26 +15,22 @@
 <!-- BRAND INTRO -->
 <section class="brand-intro">
     <div class="brand-intro-inner">
-        <p class="brand-intro-eyebrow">montreal, 2025</p>
-        <h1 class="brand-intro-name">cora</h1>
-        <p class="brand-intro-tagline">on a repensé la relation entre le son et le monde qui t'entoure.</p>
+        <p class="brand-intro-eyebrow" data-i18n="home.brandEyebrow">montreal, 2025</p>
+        <h1 class="brand-intro-name" data-i18n="home.brandName">cora</h1>
+        <p class="brand-intro-tagline" data-i18n="home.brandTagline">on a repensé la relation entre le son et le monde qui t'entoure.</p>
         <div class="brand-intro-manifesto">
-            <p>
-                on n'a pas commencé par les specs. on a commencé par une question : pourquoi les écouteurs t'obligent-ils à choisir entre ta musique et ta vie ?
-            </p>
-            <p>
-                cora est née d'une idée simple : ton environnement sonore t'appartient — pas à un préréglage, pas au silence imposé.
-            </p>
+            <p data-i18n="home.manifesto1">on n'a pas commencé par les specs. on a commencé par une question : pourquoi les écouteurs t'obligent-ils à choisir entre ta musique et ta vie ?</p>
+            <p data-i18n="home.manifesto2">cora est née d'une idée simple : ton environnement sonore t'appartient — pas à un préréglage, pas au silence imposé.</p>
         </div>
         <div class="brand-intro-founders">
-            <span>fondé par ash</span>
+            <span data-i18n="home.foundedBy">fondé par ash</span>
             <span class="brand-intro-dot">·</span>
             <span>montréal, 2025</span>
         </div>
         <div class="brand-intro-actions">
-            <a href="story.html" class="btn btn-primary"><span>notre histoire →</span></a>
+            <a href="story.html" class="btn btn-primary"><span data-i18n="home.discoverProduct">notre histoire →</span></a>
             <a class="brand-intro-scroll" href="#product">
-                <span>découvrir le produit</span>
+                <span data-i18n="home.discoverProduct">découvrir le produit</span>
                 <div class="scroll-line"></div>
             </a>
         </div>
@@ -43,12 +39,12 @@
 
 <!-- NAV -->
 <nav>
-    <div class="nav-logo">cora</div>
+    <div class="nav-logo" data-i18n="nav.logo">cora</div>
     <ul class="nav-links">
-        <li><a href="#">fonctions</a></li>
-        <li><a href="story.html">notre histoire</a></li>
-        <li><a href="design.html">design</a></li>
-        <li><a href="checkout.html">commander</a></li>
+        <li><a href="index.html" data-i18n="nav.functions">fonctions</a></li>
+        <li><a href="story.html" data-i18n="nav.story">notre histoire</a></li>
+        <li><a href="design.html" data-i18n="nav.design">design</a></li>
+        <li><a href="checkout.html" data-i18n="nav.order">commander</a></li>
     <button class="nav-lang-btn" id="navLangBtn" aria-label="Changer de langue" onclick="openLangOverlay()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
         <span id="navLangLabel">FR</span>
@@ -64,23 +60,19 @@
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
 
-    <p class="hero-label">nouvelle génération d'écoute</p>
+    <p class="hero-label" data-i18n="home.heroLabel">nouvelle génération d'écoute</p>
     <h1 class="hero-title">
-        enfin, des écouteurs<br/>
-        <span class="gradient-word">qui comprennent.</span>
+        <span data-i18n="home.heroTitle">enfin, des écouteurs</span><br/>
+        <span class="gradient-word" data-i18n="home.heroTitleGradient">qui comprennent.</span>
     </h1>
-    <p class="hero-sub">
-        pas d'isolation totale. pas de bruit blanc.<br/>
-        quelque chose de complètement différent —<br/>
-        des écouteurs qui te laissent <strong>choisir</strong> à quoi ressemble ton monde.
-    </p>
+    <p class="hero-sub" data-i18n="home.heroSub">pas d'isolation totale. pas de bruit blanc.<br/>quelque chose de complètement différent —<br/>des écouteurs qui te laissent <strong>choisir</strong> à quoi ressemble ton monde.</p>
     <div class="hero-btns">
-        <a href="checkout.html" class="btn btn-primary"><span>entends la différence →</span></a>
-        <a href="design.html" class="btn btn-outline"><span>en savoir plus</span></a>
+        <a href="checkout.html" class="btn btn-primary"><span data-i18n="home.heroBtnPrimary">entends la différence →</span></a>
+        <a href="design.html" class="btn btn-outline"><span data-i18n="home.heroBtnSecondary">en savoir plus</span></a>
     </div>
 
     <div class="scroll-hint">
-        <span>découvrir</span>
+        <span data-i18n="home.discover">découvrir</span>
         <div class="scroll-line"></div>
     </div>
 </section>
@@ -88,22 +80,14 @@
 <!-- SECTION 1 -->
 <section class="split reveal">
     <div class="split-text">
-        <p class="split-tag reveal reveal-delay-1">01 — teleport</p>
-        <h2 class="split-title reveal reveal-delay-2">ton corps ici.<br/><em>tes oreilles ailleurs.</em></h2>
-        <p class="split-body reveal reveal-delay-3">
-            mode téléport : après s'être connécté à l'application, vos écouteurs cora permetterons de changer de son ou/et de créer des playlist
-            selon les endroits que vous frequentiez.
-        </p>
+        <p class="split-tag reveal reveal-delay-1" data-i18n="home.split1Tag">01 — teleport</p>
+        <h2 class="split-title reveal reveal-delay-2"><span data-i18n="home.split1Title">ton corps ici.</span><br/><em data-i18n="home.split1TitleEm">tes oreilles ailleurs.</em></h2>
+        <p class="split-body reveal reveal-delay-3" data-i18n="home.split1Body">mode téléport : après s'être connecté à l'application, vos écouteurs cora permetterons de changer de son ou/et de créer des playlist selon les endroits que vous frequentiez.</p>
     </div>
     <div class="split-image">
         <div class="visual">
             <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <radialGradient id="g1" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stop-color="#B99DD4" stop-opacity="0.9"/>
-                        <stop offset="100%" stop-color="#7B5EA7" stop-opacity="0.3"/>
-                    </radialGradient>
-                </defs>
+                <defs><radialGradient id="g1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#B99DD4" stop-opacity="0.9"/><stop offset="100%" stop-color="#7B5EA7" stop-opacity="0.3"/></radialGradient></defs>
                 <circle cx="150" cy="150" r="120" stroke="url(#g1)" stroke-width="1" stroke-dasharray="5 8"/>
                 <circle cx="150" cy="150" r="80" stroke="#B99DD4" stroke-width="0.5" opacity="0.4"/>
                 <circle cx="150" cy="150" r="40" fill="#7B5EA7" opacity="0.1"/>
@@ -122,23 +106,14 @@
 <!-- SECTION 2 -->
 <section class="split reverse reveal">
     <div class="split-text">
-        <p class="split-tag reveal reveal-delay-1">02 — replay</p>
-        <h2 class="split-title reveal reveal-delay-2">tu as raté<br/><em>ce qu'on t'a dit ?</em></h2>
-        <p class="split-body reveal reveal-delay-3">
-            avec la fonctionalité replay, d'un simple tap, les 10 dernières secondes du monde réel se rejouent dans tes oreilles.
-            un vrai gamechanger pour ta vie quotidienne. plus jamais de "désolé, tu peux répéter ?"
-        </p>
+        <p class="split-tag reveal reveal-delay-1" data-i18n="home.split2Tag">02 — replay</p>
+        <h2 class="split-title reveal reveal-delay-2"><span data-i18n="home.split2Title">tu as raté</span><br/><em data-i18n="home.split2TitleEm">ce qu'on t'a dit ?</em></h2>
+        <p class="split-body reveal reveal-delay-3" data-i18n="home.split2Body">avec la fonctionalité replay, d'un simple tap, les 10 dernières secondes du monde réel se rejouent dans tes oreilles. un vrai gamechanger pour ta vie quotidienne. plus jamais de "désolé, tu peux répéter ?"</p>
     </div>
     <div class="split-image">
         <div class="visual">
             <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="wg" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#C4873A"/>
-                        <stop offset="60%" stop-color="#9E7FA8"/>
-                        <stop offset="100%" stop-color="#7B5EA7" stop-opacity="0.2"/>
-                    </linearGradient>
-                </defs>
+                <defs><linearGradient id="wg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C4873A"/><stop offset="60%" stop-color="#9E7FA8"/><stop offset="100%" stop-color="#7B5EA7" stop-opacity="0.2"/></linearGradient></defs>
                 <rect x="40" y="65" width="220" height="90" rx="14" stroke="#B99DD4" stroke-width="0.8" fill="rgba(123,94,167,0.04)"/>
                 <rect x="40" y="65" width="136" height="90" rx="14" fill="rgba(196,135,58,0.07)"/>
                 <rect x="60" y="97" width="5" height="26" rx="2.5" fill="url(#wg)" opacity="0.6"/>
@@ -164,23 +139,14 @@
 <!-- SECTION 3 -->
 <section class="split reveal">
     <div class="split-text">
-        <p class="split-tag reveal reveal-delay-1">03 — silence sélectif</p>
-        <h2 class="split-title reveal reveal-delay-2">supprime exactement<br/><em>ce que tu détestes.</em></h2>
-        <p class="split-body reveal reveal-delay-3">
-            entraîne-le sur le bruit de l'imprimante, la voix d'un collègue, les klaxons.
-            il supprime chirurgicalement ce son-là, et rien d'autre.
-            le reste du monde reste intact.
-        </p>
+        <p class="split-tag reveal reveal-delay-1" data-i18n="home.split3Tag">03 — silence sélectif</p>
+        <h2 class="split-title reveal reveal-delay-2"><span data-i18n="home.split3Title">supprime exactement</span><br/><em data-i18n="home.split3TitleEm">ce que tu détestes.</em></h2>
+        <p class="split-body reveal reveal-delay-3" data-i18n="home.split3Body">entraîne-le sur le bruit de l'imprimante, la voix d'un collègue, les klaxons. il supprime chirurgicalement ce son-là, et rien d'autre. le reste du monde reste intact.</p>
     </div>
     <div class="split-image">
         <div class="visual">
             <svg viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="wg2" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#7B5EA7"/>
-                        <stop offset="100%" stop-color="#C4873A"/>
-                    </linearGradient>
-                </defs>
+                <defs><linearGradient id="wg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7B5EA7"/><stop offset="100%" stop-color="#C4873A"/></linearGradient></defs>
                 <path d="M80 130 Q110 90 140 130 Q170 170 200 130" stroke="url(#wg2)" stroke-width="2" fill="none" opacity="0.5"/>
                 <path d="M60 130 Q105 68 150 130 Q195 192 240 130" stroke="url(#wg2)" stroke-width="1" fill="none" opacity="0.28"/>
                 <circle cx="150" cy="130" r="32" stroke="#7B5EA7" stroke-width="1.2" opacity="0.3" stroke-dasharray="3 4"/>
@@ -203,52 +169,51 @@
 <!-- FEATURES -->
 <div class="features-strip">
     <div class="feature-item reveal reveal-delay-1">
-        <p class="feature-num">04</p>
-        <h3 class="feature-title">fredonne,<br/>il trouve.</h3>
-        <p class="feature-body">fredonne n'importe quelle mélodie. cora identifie le morceau et le joue instantanément. à la seconde près.</p>
+        <p class="feature-num" data-i18n="home.feature1Num">04</p>
+        <h3 class="feature-title" data-i18n="home.feature1Title">fredonne,<br/>il trouve.</h3>
+        <p class="feature-body" data-i18n="home.feature1Body">fredonne n'importe quelle mélodie. cora identifie le morceau et le joue instantanément. à la seconde près.</p>
     </div>
     <div class="feature-item reveal reveal-delay-2">
-        <p class="feature-num">05</p>
-        <h3 class="feature-title">suivi du<br/>sommeil.</h3>
-        <p class="feature-body">température et mouvement captés depuis le conduit auditif. un résumé vocal chaque matin.</p>
+        <p class="feature-num" data-i18n="home.feature2Num">05</p>
+        <h3 class="feature-title" data-i18n="home.feature2Title">suivi du<br/>sommeil.</h3>
+        <p class="feature-body" data-i18n="home.feature2Body">température et mouvement captés depuis le conduit auditif. un résumé vocal chaque matin.</p>
     </div>
     <div class="feature-item reveal reveal-delay-3">
-        <p class="feature-num">06</p>
-        <h3 class="feature-title">score de<br/>concentration.</h3>
-        <p class="feature-body">analyse tes habitudes d'écoute et révèle des patterns sur ta productivité au fil du temps, disponible sur l'app.</p>
+        <p class="feature-num" data-i18n="home.feature3Num">06</p>
+        <h3 class="feature-title" data-i18n="home.feature3Title">score de<br/>concentration.</h3>
+        <p class="feature-body" data-i18n="home.feature3Body">analyse tes habitudes d'écoute et révèle des patterns sur ta productivité au fil du temps, disponible sur l'app.</p>
     </div>
 </div>
 
 <!-- QUOTE -->
 <section class="quote-section reveal">
-    <p class="quote-text">"le silence parfait n'a jamais existé. ce que tu voulais, c'était choisir."</p>
-    <p class="quote-attr">— cora, 2025</p>
+    <p class="quote-text" data-i18n="home.quoteText">"le silence parfait n'a jamais existé. ce que tu voulais, c'était choisir."</p>
+    <p class="quote-attr" data-i18n="home.quoteAttr">— cora, 2025</p>
 </section>
-
 
 <!-- TESTIMONIALS -->
 <section class="testimonials-section reveal">
-    <p class="section-kicker" style="text-align:center">ce qu'ils disent</p>
-    <h2>des milliers d'oreilles déjà convaincues.</h2>
+    <p class="section-kicker" style="text-align:center" data-i18n="home.testimonialsKicker">ce qu'ils disent</p>
+    <h2 data-i18n="home.testimonialsTitle">des milliers d'oreilles déjà convaincues.</h2>
     <div class="testimonials-grid">
         <div class="testimonial-card reveal reveal-delay-1">
-            <div class="testimonial-stars">★★★★★ - 5/5</div>
-            <p class="testimonial-text">"j'ai enfin arrêté de retirer mes écouteurs à chaque conversation. la fonction replay a changé ma façon de travailler en open space."</p>
-            <p class="testimonial-author"><strong>Léa M.</strong> · designer, montréal</p>
+            <div class="testimonial-stars" data-i18n="home.testimonial1Stars">★★★★★ - 5/5</div>
+            <p class="testimonial-text" data-i18n="home.testimonial1Text">"j'ai enfin arrêté de retirer mes écouteurs à chaque conversation. la fonction replay a changé ma façon de travailler en open space."</p>
+            <p class="testimonial-author" data-i18n="home.testimonial1Author"><strong>Léa M.</strong> · designer, montréal</p>
         </div>
         <div class="testimonial-card reveal reveal-delay-2">
-            <div class="testimonial-stars">★★★★ 4/5</div>
-            <p class="testimonial-text">"le silence sélectif est une révolution. je bloque le bruit du métro mais j'entends mon arrêt. exactement ce que je cherchais depuis des années."</p>
-            <p class="testimonial-author"><strong>Thomas R.</strong> · ingénieur, paris</p>
+            <div class="testimonial-stars" data-i18n="home.testimonial2Stars">★★★★ 4/5</div>
+            <p class="testimonial-text" data-i18n="home.testimonial2Text">"le silence sélectif est une révolution. je bloque le bruit du métro mais j'entends mon arrêt. exactement ce que je cherchais depuis des années."</p>
+            <p class="testimonial-author" data-i18n="home.testimonial2Author"><strong>Thomas R.</strong> · ingénieur, paris</p>
         </div>
         <div class="testimonial-card reveal reveal-delay-3">
-            <div class="testimonial-stars">★★★★★ 5/5</div>
-            <p class="testimonial-text">"le design est incroyable. on me demande tout le temps ce que c'est. et le son — vraiment, rien de comparable dans cette gamme de prix."</p>
-            <p class="testimonial-author"><strong>Sofia K.</strong> · photographe, toronto</p>
+            <div class="testimonial-stars" data-i18n="home.testimonial3Stars">★★★★★ 5/5</div>
+            <p class="testimonial-text" data-i18n="home.testimonial3Text">"le design est incroyable. on me demande tout le temps ce que c'est. et le son — vraiment, rien de comparable dans cette gamme de prix."</p>
+            <p class="testimonial-author" data-i18n="home.testimonial3Author"><strong>Sofia K.</strong> · photographe, toronto</p>
         </div>
     </div>
     <div class="partners-bar reveal">
-        <p>reconnu par</p>
+        <p data-i18n="home.partnersRecognized">reconnu par</p>
         <div class="partners-logos">
             <span class="partner-logo">Le Devoir</span>
             <span class="partner-logo">Wired</span>
@@ -263,34 +228,34 @@
 <footer>
     <div class="footer-top">
         <div>
-            <div class="footer-logo">cora</div>
-            <p class="footer-brand-desc">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
+            <div class="footer-logo" data-i18n="nav.logo">cora</div>
+            <p class="footer-brand-desc" data-i18n="footer.tagline">des écouteurs pensés pour ta vie — pas contre elle. montréal, 2025.</p>
         </div>
         <div class="footer-col">
-            <h4>navigation</h4>
+            <h4 data-i18n="footer.nav">navigation</h4>
             <ul>
-                <li><a href="index.html">fonctions</a></li>
-                <li><a href="story.html">notre histoire</a></li>
-                <li><a href="design.html">design</a></li>
-                <li><a href="checkout.html">commander</a></li>
+                <li><a href="index.html" data-i18n="nav.functions">fonctions</a></li>
+                <li><a href="story.html" data-i18n="nav.story">notre histoire</a></li>
+                <li><a href="design.html" data-i18n="nav.design">design</a></li>
+                <li><a href="checkout.html" data-i18n="nav.order">commander</a></li>
             </ul>
         </div>
         <div class="footer-col">
-            <h4>légal</h4>
+            <h4 data-i18n="footer.legal">légal</h4>
             <ul>
-                <li><a href="legal.html#privacy">politique de confidentialité</a></li>
-                <li><a href="legal.html#cgv">conditions générales de vente</a></li>
-                <li><a href="legal.html#mentions">mentions légales</a></li>
-                <li><a href="legal.html#cookies">cookies</a></li>
+                <li><a href="legal.html#privacy" data-i18n="footer.privacy">politique de confidentialité</a></li>
+                <li><a href="legal.html#cgv" data-i18n="footer.cgv">conditions générales de vente</a></li>
+                <li><a href="legal.html#mentions" data-i18n="footer.mentions">mentions légales</a></li>
+                <li><a href="legal.html#cookies" data-i18n="footer.cookies">cookies</a></li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
-        <p class="footer-copy">© 2025 cora, fait par ash</p>
+        <p class="footer-copy" data-i18n="footer.copy">© 2025 cora, fait par ash</p>
         <div class="footer-legal">
-            <a href="legal.html#privacy">confidentialité</a>
-            <a href="legal.html#cgv">CGV</a>
-            <a href="legal.html#mentions">mentions légales</a>
+            <a href="legal.html#privacy" data-i18n="footer.privacyShort">confidentialité</a>
+            <a href="legal.html#cgv" data-i18n="footer.cgvShort">CGV</a>
+            <a href="legal.html#mentions" data-i18n="footer.mentionsShort">mentions légales</a>
         </div>
     </div>
 </footer>
@@ -374,7 +339,6 @@ function closeLangOverlay() {
     document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLangOverlay(); });
-// Update nav label + active card after lang set
 document.addEventListener('DOMContentLoaded', () => {
     const labels = {fr:'FR',en:'EN',es:'ES',de:'DE',it:'IT',ru:'RU',pl:'PL',ko:'KO',ja:'JA',zh:'ZH'};
     const updateNav = () => {
